@@ -273,12 +273,15 @@ const DataSources = () => {
                 <div>
                   {type === 'drone' && (
                     <div>
-                      <small><strong>Cracks:</strong> {item.analysis.cracks_detected}</small><br />
-                      <small><strong>Vegetation:</strong> {item.analysis.vegetation_coverage}%</small><br />
-                      <small><strong>Risk:</strong> <Badge bg={
-                        item.analysis.overall_risk === 'high' ? 'danger' : 
-                        item.analysis.overall_risk === 'medium' ? 'warning' : 'success'
-                      }>{item.analysis.overall_risk}</Badge></small>
+                      <small><strong className="text-dark">Cracks:</strong> <span className="text-dark">{item.analysis.cracks_detected}</span></small><br />
+                      <small><strong className="text-dark">Vegetation:</strong> <span className="text-dark">{item.analysis.vegetation_coverage}%</span></small><br />
+                      <small><strong className="text-dark">Risk Score:</strong> <span className="text-dark">{item.analysis.risk_score || 'N/A'}</span></small><br />
+                      <small><strong className="text-dark">Confidence:</strong> <span className="text-dark">{item.analysis.confidence ? `${(item.analysis.confidence * 100).toFixed(1)}%` : 'N/A'}</span></small><br />
+                      <small><strong className="text-dark">Model:</strong> <span className="text-dark">{item.analysis.model_version || '1.0'}</span></small><br />
+                      <small><strong className="text-dark">Risk:</strong> <Badge bg={
+                        (item.analysis.risk_level === 'HIGH' || item.analysis.overall_risk === 'high') ? 'danger' : 
+                        (item.analysis.risk_level === 'MEDIUM' || item.analysis.overall_risk === 'medium') ? 'warning' : 'success'
+                      }>{item.analysis.risk_level || item.analysis.overall_risk}</Badge></small>
                     </div>
                   )}
                   {type !== 'drone' && Object.entries(item.analysis).slice(0, 2).map(([key, value]) => (
@@ -593,7 +596,7 @@ const DataSources = () => {
                     style={{ maxHeight: '400px', backgroundColor: '#f8f9fa' }}
                   />
                   <div className="mt-3">
-                    <p className="text-muted">
+                    <p className="text-muted fw-bold" style={{ color: '#6c757d', fontSize: '14px' }}>
                       Note: This is a placeholder image. In a real implementation, 
                       the actual uploaded image would be displayed here.
                     </p>
@@ -601,35 +604,35 @@ const DataSources = () => {
                 </div>
               </Col>
               <Col md={4}>
-                <h5>File Information</h5>
-                <Table responsive size="sm">
+                <h5 className="text-dark fw-bold mb-3">File Information</h5>
+                <Table responsive size="sm" className="table-striped">
                   <tbody>
                     <tr>
-                      <td><strong>Filename:</strong></td>
-                      <td>{selectedImage.filename}</td>
+                      <td><strong className="text-dark">Filename:</strong></td>
+                      <td className="text-dark">{selectedImage.filename}</td>
                     </tr>
                     <tr>
-                      <td><strong>Type:</strong></td>
+                      <td><strong className="text-dark">Type:</strong></td>
                       <td><Badge bg="info">{selectedImage.type}</Badge></td>
                     </tr>
                     <tr>
-                      <td><strong>Size:</strong></td>
-                      <td>{selectedImage.size}</td>
+                      <td><strong className="text-dark">Size:</strong></td>
+                      <td className="text-dark">{selectedImage.size}</td>
                     </tr>
                     <tr>
-                      <td><strong>Upload Date:</strong></td>
-                      <td>{new Date(selectedImage.timestamp).toLocaleString()}</td>
+                      <td><strong className="text-dark">Upload Date:</strong></td>
+                      <td className="text-dark">{new Date(selectedImage.timestamp).toLocaleString()}</td>
                     </tr>
                     {selectedImage.altitude && (
                       <tr>
-                        <td><strong>Altitude:</strong></td>
-                        <td>{selectedImage.altitude}m</td>
+                        <td><strong className="text-dark">Altitude:</strong></td>
+                        <td className="text-dark">{selectedImage.altitude}m</td>
                       </tr>
                     )}
                     {selectedImage.resolution && (
                       <tr>
-                        <td><strong>Resolution:</strong></td>
-                        <td>{selectedImage.resolution}</td>
+                        <td><strong className="text-dark">Resolution:</strong></td>
+                        <td className="text-dark">{selectedImage.resolution}</td>
                       </tr>
                     )}
                   </tbody>
@@ -637,36 +640,92 @@ const DataSources = () => {
 
                 {selectedImage.analysis && (
                   <>
-                    <h5 className="mt-4">Analysis Results</h5>
-                    <Table responsive size="sm">
+                    <h5 className="mt-4 text-dark fw-bold">AI Analysis Results</h5>
+                    <Table responsive size="sm" className="table-striped">
                       <tbody>
-                        {Object.entries(selectedImage.analysis).map(([key, value]) => (
-                          <tr key={key}>
-                            <td><strong>{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:</strong></td>
-                            <td>
-                              {Array.isArray(value) ? value.join(', ') : 
-                               typeof value === 'number' ? value.toLocaleString() : 
-                               value}
-                            </td>
-                          </tr>
-                        ))}
+                        {/* Basic Analysis */}
+                        <tr>
+                          <td><strong className="text-dark">Cracks Detected:</strong></td>
+                          <td className="text-dark">{selectedImage.analysis.cracks_detected || 'N/A'}</td>
+                        </tr>
+                        <tr>
+                          <td><strong className="text-dark">Vegetation Coverage:</strong></td>
+                          <td className="text-dark">{selectedImage.analysis.vegetation_coverage}%</td>
+                        </tr>
+                        <tr>
+                          <td><strong className="text-dark">Rock Exposure:</strong></td>
+                          <td className="text-dark">{selectedImage.analysis.rock_exposure}%</td>
+                        </tr>
+                        <tr>
+                          <td><strong className="text-dark">Fracture Density:</strong></td>
+                          <td className="text-dark">{selectedImage.analysis.fracture_density || 'N/A'}</td>
+                        </tr>
+                        <tr>
+                          <td><strong className="text-dark">Slope Angle:</strong></td>
+                          <td className="text-dark">{selectedImage.analysis.slope_angle}°</td>
+                        </tr>
+                        <tr>
+                          <td><strong className="text-dark">Risk Level:</strong></td>
+                          <td>
+                            <Badge bg={
+                              (selectedImage.analysis.risk_level === 'HIGH' || selectedImage.analysis.overall_risk === 'high') ? 'danger' : 
+                              (selectedImage.analysis.risk_level === 'MEDIUM' || selectedImage.analysis.overall_risk === 'medium') ? 'warning' : 'success'
+                            }>
+                              {selectedImage.analysis.risk_level || selectedImage.analysis.overall_risk}
+                            </Badge>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><strong className="text-dark">AI Confidence:</strong></td>
+                          <td className="text-dark">
+                            {selectedImage.analysis.confidence ? `${(selectedImage.analysis.confidence * 100).toFixed(1)}%` : 'N/A'}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><strong className="text-dark">Model Version:</strong></td>
+                          <td className="text-dark">{selectedImage.analysis.model_version || '1.0'}</td>
+                        </tr>
                       </tbody>
                     </Table>
+
+                    {/* Risk Factors */}
+                    {selectedImage.analysis.risk_factors && selectedImage.analysis.risk_factors.length > 0 && (
+                      <>
+                        <h6 className="mt-3 text-dark fw-bold">Risk Factors:</h6>
+                        <ul className="text-dark">
+                          {selectedImage.analysis.risk_factors.map((factor, index) => (
+                            <li key={index}>{factor}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+
+                    {/* Recommendations */}
+                    {selectedImage.analysis.recommendations && selectedImage.analysis.recommendations.length > 0 && (
+                      <>
+                        <h6 className="mt-3 text-dark fw-bold">AI Recommendations:</h6>
+                        <ul className="text-dark">
+                          {selectedImage.analysis.recommendations.map((rec, index) => (
+                            <li key={index}>{rec}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
                   </>
                 )}
 
                 {selectedImage.location && (
                   <>
-                    <h5 className="mt-4">Location</h5>
-                    <Table responsive size="sm">
+                    <h5 className="mt-4 text-dark fw-bold">Location</h5>
+                    <Table responsive size="sm" className="table-striped">
                       <tbody>
                         <tr>
-                          <td><strong>Latitude:</strong></td>
-                          <td>{selectedImage.location.lat}</td>
+                          <td><strong className="text-dark">Latitude:</strong></td>
+                          <td className="text-dark">{selectedImage.location.lat}</td>
                         </tr>
                         <tr>
-                          <td><strong>Longitude:</strong></td>
-                          <td>{selectedImage.location.lng}</td>
+                          <td><strong className="text-dark">Longitude:</strong></td>
+                          <td className="text-dark">{selectedImage.location.lng}</td>
                         </tr>
                       </tbody>
                     </Table>

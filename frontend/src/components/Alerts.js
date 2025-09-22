@@ -18,19 +18,24 @@ const Alerts = () => {
 
   const fetchAlerts = async () => {
     try {
+      setLoading(true);
       const response = await axios.get('/api/alerts');
-      setAlerts(response.data.alerts);
+      // Backend returns array directly, not wrapped in { alerts: [...] }
+      const alertsData = Array.isArray(response.data) ? response.data : [];
+      setAlerts(alertsData);
       setError(null);
     } catch (err) {
       setError('Failed to fetch alerts');
       console.error('Alerts error:', err);
+      // Set empty array as fallback
+      setAlerts([]);
     } finally {
       setLoading(false);
     }
   };
 
-  const getSeverityVariant = (severity) => {
-    switch (severity) {
+  const getSeverityVariant = (riskLevel) => {
+    switch (riskLevel) {
       case 'LOW': return 'success';
       case 'MEDIUM': return 'warning';
       case 'HIGH': return 'danger';
@@ -48,10 +53,10 @@ const Alerts = () => {
     }
   };
 
-  const filteredAlerts = alerts.filter(alert => {
+  const filteredAlerts = (alerts || []).filter(alert => {
     if (filter === 'ALL') return true;
     if (filter === 'ACTIVE') return alert.status === 'ACTIVE';
-    if (filter === 'HIGH_RISK') return alert.severity === 'HIGH' || alert.severity === 'CRITICAL';
+    if (filter === 'HIGH_RISK') return alert.risk_level === 'HIGH' || alert.risk_level === 'CRITICAL';
     return true;
   });
 
@@ -122,7 +127,7 @@ const Alerts = () => {
         <Col md={3}>
           <Card className="modern-card slide-in">
             <Card.Body className="text-center">
-              <h4 className="text-primary display-6">{alerts.length}</h4>
+              <h4 className="text-primary display-6">{(alerts || []).length}</h4>
               <small className="text-light">Total Alerts</small>
             </Card.Body>
           </Card>
@@ -130,7 +135,7 @@ const Alerts = () => {
         <Col md={3}>
           <Card className="modern-card slide-in">
             <Card.Body className="text-center">
-              <h4 className="text-danger display-6">{alerts.filter(a => a.status === 'ACTIVE').length}</h4>
+              <h4 className="text-danger display-6">{(alerts || []).filter(a => a.status === 'ACTIVE').length}</h4>
               <small className="text-light">Active Alerts</small>
             </Card.Body>
           </Card>
@@ -138,7 +143,7 @@ const Alerts = () => {
         <Col md={3}>
           <Card className="modern-card slide-in">
             <Card.Body className="text-center">
-              <h4 className="text-warning display-6">{alerts.filter(a => a.severity === 'HIGH' || a.severity === 'CRITICAL').length}</h4>
+              <h4 className="text-warning display-6">{(alerts || []).filter(a => a.risk_level === 'HIGH' || a.risk_level === 'CRITICAL').length}</h4>
               <small className="text-light">High Risk</small>
             </Card.Body>
           </Card>
@@ -146,7 +151,7 @@ const Alerts = () => {
         <Col md={3}>
           <Card className="modern-card slide-in">
             <Card.Body className="text-center">
-              <h4 className="text-success display-6">{alerts.filter(a => a.status === 'RESOLVED').length}</h4>
+              <h4 className="text-success display-6">{(alerts || []).filter(a => a.status === 'RESOLVED').length}</h4>
               <small className="text-light">Resolved</small>
             </Card.Body>
           </Card>
@@ -169,7 +174,7 @@ const Alerts = () => {
                     <tr>
                       <th className="text-primary">Timestamp</th>
                       <th className="text-primary">Type</th>
-                      <th className="text-primary">Severity</th>
+                      <th className="text-primary">Risk Level</th>
                       <th className="text-primary">Status</th>
                       <th className="text-primary">Message</th>
                       <th className="text-primary">Location</th>
@@ -187,8 +192,8 @@ const Alerts = () => {
                           <Badge bg="info" className="modern-badge">{alert.alert_type}</Badge>
                         </td>
                         <td>
-                          <Badge bg={getSeverityVariant(alert.severity)} className="modern-badge">
-                            {alert.severity}
+                          <Badge bg={getSeverityVariant(alert.risk_level)} className="modern-badge">
+                            {alert.risk_level}
                           </Badge>
                         </td>
                         <td>

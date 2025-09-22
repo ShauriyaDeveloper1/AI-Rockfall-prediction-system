@@ -11,6 +11,11 @@ import rasterio
 from rasterio.features import shapes
 from rasterio.warp import calculate_default_transform, reproject, Resampling
 
+# Import the trained AI analyzer
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'ml_models'))
+from trained_analyzer import analyze_drone_image
+
 data_sources_bp = Blueprint('data_sources', __name__)
 
 # Configuration
@@ -27,59 +32,55 @@ def allowed_file(filename, data_type):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS.get(data_type, set())
 
 class DroneImageAnalyzer:
-    """Analyze drone imagery for rockfall risk indicators"""
+    """Enhanced analyzer for geological drone imagery using trained AI models"""
     
     @staticmethod
     def analyze_rgb_image(image_path):
-        """Analyze RGB drone image for visual indicators"""
+        """Analyze RGB drone image using trained AI models"""
         try:
-            # Load image
-            image = cv2.imread(image_path)
-            if image is None:
-                return {"error": "Could not load image"}
+            # Use the trained AI model for analysis
+            analysis_result = analyze_drone_image(image_path)
             
-            # Convert to different color spaces for analysis
-            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+            if 'error' in analysis_result:
+                return analysis_result
             
-            # Detect edges (potential cracks/fractures)
-            edges = cv2.Canny(gray, 50, 150)
-            contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            # Extract key metrics for the UI
+            features = analysis_result.get('features', {})
+            risk_assessment = analysis_result.get('risk_assessment', {})
+            ml_predictions = analysis_result.get('ml_predictions', {})
             
-            # Analyze vegetation coverage (green areas)
-            lower_green = np.array([35, 40, 40])
-            upper_green = np.array([85, 255, 255])
-            green_mask = cv2.inRange(hsv, lower_green, upper_green)
-            vegetation_percentage = (np.sum(green_mask > 0) / green_mask.size) * 100
-            
-            # Detect potential loose rocks (texture analysis)
-            texture_variance = cv2.Laplacian(gray, cv2.CV_64F).var()
-            
-            # Rock color analysis (brownish/grayish areas)
-            lower_rock = np.array([10, 50, 50])
-            upper_rock = np.array([30, 255, 200])
-            rock_mask = cv2.inRange(hsv, lower_rock, upper_rock)
-            rock_percentage = (np.sum(rock_mask > 0) / rock_mask.size) * 100
-            
-            # Risk assessment based on analysis
-            risk_indicators = []
-            if len(contours) > 100:
-                risk_indicators.append('high_fracture_density')
-            if vegetation_percentage < 10:
-                risk_indicators.append('low_vegetation_stability')
-            if texture_variance > 1000:
-                risk_indicators.append('rough_surface_texture')
-            if rock_percentage > 60:
-                risk_indicators.append('exposed_rock_face')
-            
-            return {
-                'cracks_detected': len(contours),
-                'vegetation_coverage': round(vegetation_percentage, 2),
-                'rock_exposure': round(rock_percentage, 2),
-                'texture_variance': round(texture_variance, 2),
-                'risk_indicators': risk_indicators,
-                'overall_risk': 'high' if len(risk_indicators) >= 3 else 'medium' if len(risk_indicators) >= 2 else 'low'
+            # Format the response for the frontend
+            formatted_result = {
+                'cracks_detected': int(features.get('crack_count', 0)),
+                'vegetation_coverage': round(features.get('vegetation_coverage_percent', 0), 2),
+                'rock_exposure': round(features.get('rock_exposure_percent', 0), 2),
+                'texture_variance': round(features.get('texture_roughness', 0), 2),
+                'fracture_density': round(features.get('fracture_density', 0), 4),
+                'weathering_indicators': round(features.get('weathering_indicators', 0), 2),
+                'moisture_content': round(features.get('moisture_content', 0), 2),
+                'slope_angle': round(features.get('estimated_slope_angle', 0), 2),
+                'steep_areas_percent': round(features.get('steep_areas_percent', 0), 2),
+                'risk_level': risk_assessment.get('risk_level', 'UNKNOWN'),
+                'risk_score': round(risk_assessment.get('risk_score', 0), 3),
+                'confidence': round(risk_assessment.get('confidence', 0), 3),
+                'risk_factors': risk_assessment.get('risk_factors', []),
+                'stability_indicators': risk_assessment.get('stability_indicators', []),
+                'model_version': analysis_result.get('model_version', '2.0'),
+                'analysis_timestamp': analysis_result.get('analysis_timestamp', datetime.now().isoformat())
             }
+            
+            # Add detailed insights if available
+            if 'detailed_analysis' in ml_predictions:
+                formatted_result['detailed_analysis'] = ml_predictions['detailed_analysis']
+            
+            if 'recommendations' in ml_predictions:
+                formatted_result['recommendations'] = ml_predictions['recommendations']
+            
+            # Convert risk level to overall risk for backwards compatibility
+            risk_mapping = {'LOW': 'low', 'MEDIUM': 'medium', 'HIGH': 'high', 'CRITICAL': 'critical'}
+            formatted_result['overall_risk'] = risk_mapping.get(formatted_result['risk_level'], 'unknown')
+            
+            return formatted_result
             
         except Exception as e:
             return {"error": f"Analysis failed: {str(e)}"}

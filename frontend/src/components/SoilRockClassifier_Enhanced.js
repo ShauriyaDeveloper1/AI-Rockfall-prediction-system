@@ -79,11 +79,22 @@ const SoilRockClassifier = () => {
         const result = await response.json();
         console.log('Classification result:', result);
         
-        if (result.success) {
-          setClassification(result);
+        // Check if the result contains an error field (from server error responses)
+        if (result.error) {
+          setError(result.error);
+          setClassification(null);
+        } else if (result.predicted_class) {
+          // Valid classification response - has the required fields
+          // Add missing fields for UI compatibility
+          const enhancedResult = {
+            ...result,
+            confidence_level: result.confidence >= 80 ? 'High' : 
+                             result.confidence >= 60 ? 'Medium' : 'Low'
+          };
+          setClassification(enhancedResult);
           setError('');
         } else {
-          setError(result.error || 'Classification failed');
+          setError('Invalid response format from server');
           setClassification(null);
         }
       } else {
@@ -225,7 +236,7 @@ const SoilRockClassifier = () => {
                 <h4><i className="fab fa-wikipedia-w me-2"></i>Wikipedia Information</h4>
                 <div className="wikipedia-content">
                   <div className="wiki-text">
-                    <h5>{classification.wikipedia_info.title}</h5>
+                    <h5>{classification.wikipedia_info.title || classification.predicted_class}</h5>
                     <p>{classification.wikipedia_info.description}</p>
                     {classification.wikipedia_info.url && (
                       <a 
@@ -253,76 +264,83 @@ const SoilRockClassifier = () => {
             )}
 
             {/* Detailed Analysis */}
-            {classification.detailed_analysis && (
+            {(classification.geological_details || classification.analysis) && (
               <div className="detailed-analysis">
-                <h4><i className="fas fa-microscope me-2"></i>Geological Analysis</h4>
+                <h4><i className="fas fa-microscope me-2"></i>Comprehensive Geological Analysis</h4>
                 
-                {/* Geological Properties */}
-                <div className="analysis-grid">
-                  <div className="analysis-card">
-                    <h5>🔬 Geological Properties</h5>
-                    <div className="property-list">
-                      <div className="property-item">
-                        <span className="label">Formation Type:</span>
-                        <span className="value">{classification.detailed_analysis.geological_analysis?.formation_type}</span>
-                      </div>
-                      <div className="property-item">
-                        <span className="label">Hardness:</span>
-                        <span className="value">{classification.detailed_analysis.geological_analysis?.hardness_scale}</span>
-                      </div>
-                      <div className="property-item">
-                        <span className="label">Porosity:</span>
-                        <span className="value">{classification.detailed_analysis.geological_analysis?.porosity_level}</span>
-                      </div>
-                      <div className="property-item">
-                        <span className="label">Mining Suitability:</span>
-                        <span className="value">{classification.detailed_analysis.geological_analysis?.mining_suitability}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Risk Assessment */}
-                  <div className="analysis-card">
-                    <h5>⚠️ Risk Assessment</h5>
-                    <div className="risk-analysis">
-                      <div className="risk-level">
-                        <span className="label">Stability Level:</span>
-                        <span 
-                          className="risk-badge"
-                          style={{ backgroundColor: getRiskColor(classification.detailed_analysis.risk_assessment?.stability_level) }}
-                        >
-                          {classification.detailed_analysis.risk_assessment?.stability_level}
-                        </span>
-                      </div>
-                      <div className="safety-rating">
-                        <span className="label">Safety Rating:</span>
-                        <span className="value">{classification.detailed_analysis.risk_assessment?.safety_rating}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Physical Properties */}
-                {classification.detailed_analysis.physical_properties && (
-                  <div className="properties-section">
-                    <h5>🧪 Physical Properties</h5>
-                    <div className="properties-grid">
-                      {classification.detailed_analysis.physical_properties.map((property, index) => (
-                        <div key={index} className="property-tag">
-                          {property}
+                {classification.geological_details && (
+                  <div className="analysis-grid">
+                    <div className="analysis-card">
+                      <h5>🔬 Physical Properties</h5>
+                      <div className="property-list">
+                        <div className="property-item">
+                          <span className="label">Formation Type:</span>
+                          <span className="value">{classification.geological_details.formation_type}</span>
                         </div>
-                      ))}
+                        <div className="property-item">
+                          <span className="label">Hardness Scale:</span>
+                          <span className="value">{classification.geological_details.hardness}</span>
+                        </div>
+                        <div className="property-item">
+                          <span className="label">Porosity:</span>
+                          <span className="value">{classification.geological_details.porosity}</span>
+                        </div>
+                        <div className="property-item">
+                          <span className="label">Density:</span>
+                          <span className="value">{classification.geological_details.density}</span>
+                        </div>
+                        <div className="property-item">
+                          <span className="label">Compressive Strength:</span>
+                          <span className="value">{classification.geological_details.compressive_strength}</span>
+                        </div>
+                        <div className="property-item">
+                          <span className="label">Mining Suitability:</span>
+                          <span className="value">{classification.geological_details.mining_suitability}</span>
+                        </div>
+                      </div>
                     </div>
+
+                    {/* Risk Assessment */}
+                    {classification.analysis && (
+                      <div className="analysis-card">
+                        <h5>⚠️ Risk Assessment & Engineering Analysis</h5>
+                        <div className="risk-analysis">
+                          <div className="risk-level">
+                            <span className="label">Risk Level:</span>
+                            <span 
+                              className="risk-badge"
+                              style={{ backgroundColor: getRiskColor(classification.analysis.risk_level) }}
+                            >
+                              {classification.analysis.risk_level}
+                            </span>
+                          </div>
+                          <div className="property-item">
+                            <span className="label">Stability Assessment:</span>
+                            <span className="value">{classification.analysis.stability_assessment}</span>
+                          </div>
+                          <div className="property-item">
+                            <span className="label">Engineering Notes:</span>
+                            <span className="value">{classification.analysis.engineering_notes}</span>
+                          </div>
+                          <div className="property-item">
+                            <span className="label">Recommendations:</span>
+                            <span className="value">{classification.analysis.recommendations}</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
 
-                {/* Commercial Uses */}
-                {classification.detailed_analysis.commercial_uses && (
+                {/* Uses and Applications */}
+                {classification.wikipedia_info && classification.wikipedia_info.uses && (
                   <div className="uses-section">
-                    <h5>🏗️ Commercial Applications</h5>
+                    <h5>🏗️ Uses & Applications</h5>
                     <div className="uses-grid">
-                      {classification.detailed_analysis.commercial_uses.map((use, index) => (
-                        <div key={index} className="use-tag">
+                      {classification.wikipedia_info.uses.map((use, index) => (
+                        <div key={index} className="use-item">
+                          <i className="fas fa-check-circle me-2"></i>
                           {use}
                         </div>
                       ))}
@@ -330,47 +348,19 @@ const SoilRockClassifier = () => {
                   </div>
                 )}
 
-                {/* Mining Analysis */}
-                {classification.detailed_analysis.mining_analysis && (
-                  <div className="mining-section">
-                    <h5>⛏️ Mining Analysis</h5>
-                    <div className="mining-grid">
-                      <div className="mining-item">
-                        <span className="label">Extraction Difficulty:</span>
-                        <span className="value">{classification.detailed_analysis.mining_analysis.extraction_difficulty}</span>
-                      </div>
-                      <div className="mining-item">
-                        <span className="label">Economic Value:</span>
-                        <span className="value">{classification.detailed_analysis.mining_analysis.economic_value}</span>
-                      </div>
-                      <div className="mining-item">
-                        <span className="label">Environmental Impact:</span>
-                        <span className="value">{classification.detailed_analysis.mining_analysis.environmental_impact}</span>
-                      </div>
+                {/* Additional Properties */}
+                {classification.wikipedia_info && classification.wikipedia_info.properties && (
+                  <div className="properties-section">
+                    <h5>📋 Additional Properties</h5>
+                    <div className="properties-grid">
+                      {classification.wikipedia_info.properties.map((property, index) => (
+                        <div key={index} className="property-badge">
+                          {property}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 )}
-              </div>
-            )}
-
-            {/* Analysis Metadata */}
-            {classification.analysis_metadata && (
-              <div className="metadata-section">
-                <h5><i className="fas fa-info-circle me-2"></i>Analysis Details</h5>
-                <div className="metadata-grid">
-                  <div className="metadata-item">
-                    <span className="label">Processing Time:</span>
-                    <span className="value">{classification.analysis_metadata.processing_time}</span>
-                  </div>
-                  <div className="metadata-item">
-                    <span className="label">Model Version:</span>
-                    <span className="value">{classification.analysis_metadata.model_version}</span>
-                  </div>
-                  <div className="metadata-item">
-                    <span className="label">Analysis Date:</span>
-                    <span className="value">{new Date(classification.analysis_metadata.timestamp).toLocaleString()}</span>
-                  </div>
-                </div>
               </div>
             )}
           </div>
