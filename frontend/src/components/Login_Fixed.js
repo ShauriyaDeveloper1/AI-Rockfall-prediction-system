@@ -151,7 +151,7 @@ const Login = ({ onLogin }) => {
       
       // Handle different types of errors
       if (error.code === 'ECONNREFUSED' || error.message.includes('Network Error')) {
-        setError('Unable to connect to the authentication service. Please ensure the backend is running on port 5002.');
+        setError('Unable to connect to the authentication service. Please ensure the backend is running on port 5003.');
       } else if (error.response) {
         // Server responded with error status
         const errorData = error.response.data;
