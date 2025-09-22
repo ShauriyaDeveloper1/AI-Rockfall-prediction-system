@@ -1,0 +1,924 @@
+# CSV-File created with merge-csv.com
+# -----------------------------------------------------------
+
+﻿"DTDVersion","DataCenterId","GranuleURMetaData__GranuleUR","GranuleURMetaData__DbID","GranuleURMetaData__InsertTime","GranuleURMetaData__LastUpdate","GranuleURMetaData__CollectionMetaData__ShortName","GranuleURMetaData__CollectionMetaData__VersionID","GranuleURMetaData__DataFiles__DataFileContainer__DistributedFileName","GranuleURMetaData__DataFiles__DataFileContainer__FileSize","GranuleURMetaData__DataFiles__DataFileContainer__ChecksumType","GranuleURMetaData__DataFiles__DataFileContainer__Checksum","GranuleURMetaData__DataFiles__DataFileContainer__ChecksumOrigin","GranuleURMetaData__ECSDataGranule__SizeMBECSDataGranule","GranuleURMetaData__ECSDataGranule__LocalGranuleID","GranuleURMetaData__ECSDataGranule__ProductionDateTime","GranuleURMetaData__RangeDateTime__RangeEndingTime","GranuleURMetaData__RangeDateTime__RangeEndingDate","GranuleURMetaData__RangeDateTime__RangeBeginningTime","GranuleURMetaData__RangeDateTime__RangeBeginningDate","GranuleURMetaData__SpatialDomainContainer__HorizontalSpatialDomainContainer__BoundingRectangle__WestBoundingCoordinate","GranuleURMetaData__SpatialDomainContainer__HorizontalSpatialDomainContainer__BoundingRectangle__NorthBoundingCoordinate","GranuleURMetaData__SpatialDomainContainer__HorizontalSpatialDomainContainer__BoundingRectangle__EastBoundingCoordinate","GranuleURMetaData__SpatialDomainContainer__HorizontalSpatialDomainContainer__BoundingRectangle__SouthBoundingCoordinate","GranuleURMetaData__PSAs__PSA__PSAName","GranuleURMetaData__PSAs__PSA__PSAValue"
+"1.0","NSIDC","SC:HMA2_LHI.001:293210913","293210913","2024-02-22 10:27:10.409","2024-02-22 10:27:10.409","HMA2_LHI","001","HMA2_LHI_SSP245_r01_20510101-20601231_v01.0.nc","3546913843","MD5","76e2a81cf256d01eff2095d19c77d6cc","DPLIngst","3382.6","HMA2_LHI_SSP245_r01_20510101-20601231_v01.0.nc","2024-02-14 13:54:52.000","23:59:59.999000","2060-12-31","00:00:00.000000","2051-01-01","59.99999","45.99999","111.0","19.99999","SIPSMetGenVersion","2.5"
+"1.0","NSIDC","SC:HMA2_LHI.001:293211706","293211706","2024-02-22 10:40:36.747","2024-02-22 10:40:36.747","HMA2_LHI","001","HMA2_LHI_SSP245_r01_20610101-20701231_v01.0.nc","3521566146","MD5","0b63f4445dd2bbc30454b3336dab5360","DPLIngst","3358.43","HMA2_LHI_SSP245_r01_20610101-20701231_v01.0.nc","2024-02-14 14:10:48.000","23:59:59.999000","2070-12-31","00:00:00.000000","2061-01-01","59.99999","45.99999","111.0","19.99999","SIPSMetGenVersion","2.5"
+"1.0","NSIDC","SC:HMA2_LHI.001:293211413","293211413","2024-02-22 10:33:40.357","2024-02-22 10:33:40.357","HMA2_LHI","001","HMA2_LHI_SSP245_r01_20710101-20801231_v01.0.nc","3521297006","MD5","4a65ea5a421e09a38d1dc91613511ac6","DPLIngst","3358.17","HMA2_LHI_SSP245_r01_20710101-20801231_v01.0.nc","2024-02-14 13:57:44.000","23:59:59.999000","2080-12-31","00:00:00.000000","2071-01-01","59.99999","45.99999","111.0","19.99999","SIPSMetGenVersion","2.5"
+"1.0","NSIDC","SC:HMA2_LHI.001:293210998","293210998","2024-02-22 10:29:29.005","2024-02-22 10:29:29.005","HMA2_LHI","001","HMA2_LHI_SSP245_r01_20810101-20901231_v01.0.nc","3544171880","MD5","95ef79e5e497c7424e59a0059f4f983e","DPLIngst","3379.99","HMA2_LHI_SSP245_r01_20810101-20901231_v01.0.nc","2024-02-14 13:55:02.000","23:59:59.999000","2090-12-31","00:00:00.000000","2081-01-01","59.99999","45.99999","111.0","19.99999","SIPSMetGenVersion","2.5"
+
+
+GranuleMetaDataFile/DTDVersion,GranuleMetaDataFile/DataCenterId,GranuleMetaDataFile/GranuleURMetaData/GranuleUR,GranuleMetaDataFile/GranuleURMetaData/DbID,GranuleMetaDataFile/GranuleURMetaData/InsertTime,GranuleMetaDataFile/GranuleURMetaData/LastUpdate,GranuleMetaDataFile/GranuleURMetaData/CollectionMetaData/ShortName,GranuleMetaDataFile/GranuleURMetaData/CollectionMetaData/VersionID,GranuleMetaDataFile/GranuleURMetaData/DataFiles/DataFileContainer/DistributedFileName,GranuleMetaDataFile/GranuleURMetaData/DataFiles/DataFileContainer/FileSize,GranuleMetaDataFile/GranuleURMetaData/DataFiles/DataFileContainer/ChecksumType,GranuleMetaDataFile/GranuleURMetaData/DataFiles/DataFileContainer/Checksum,GranuleMetaDataFile/GranuleURMetaData/DataFiles/DataFileContainer/ChecksumOrigin,GranuleMetaDataFile/GranuleURMetaData/ECSDataGranule/SizeMBECSDataGranule,GranuleMetaDataFile/GranuleURMetaData/ECSDataGranule/LocalGranuleID,GranuleMetaDataFile/GranuleURMetaData/ECSDataGranule/ProductionDateTime,GranuleMetaDataFile/GranuleURMetaData/RangeDateTime/RangeEndingTime,GranuleMetaDataFile/GranuleURMetaData/RangeDateTime/RangeEndingDate,GranuleMetaDataFile/GranuleURMetaData/RangeDateTime/RangeBeginningTime,GranuleMetaDataFile/GranuleURMetaData/RangeDateTime/RangeBeginningDate,GranuleMetaDataFile/GranuleURMetaData/SpatialDomainContainer/HorizontalSpatialDomainContainer/BoundingRectangle/WestBoundingCoordinate,GranuleMetaDataFile/GranuleURMetaData/SpatialDomainContainer/HorizontalSpatialDomainContainer/BoundingRectangle/NorthBoundingCoordinate,GranuleMetaDataFile/GranuleURMetaData/SpatialDomainContainer/HorizontalSpatialDomainContainer/BoundingRectangle/EastBoundingCoordinate,GranuleMetaDataFile/GranuleURMetaData/SpatialDomainContainer/HorizontalSpatialDomainContainer/BoundingRectangle/SouthBoundingCoordinate,GranuleMetaDataFile/GranuleURMetaData/PSAs/PSA/PSAName,GranuleMetaDataFile/GranuleURMetaData/PSAs/PSA/PSAValue
+1.0,NSIDC,SC:HMA2_LHI.001:293210998,293210998,2024-02-22 10:29:29.005,2024-02-22 10:29:29.005,HMA2_LHI,001,HMA2_LHI_SSP245_r01_20810101-20901231_v01.0.nc,3544171880,MD5,95ef79e5e497c7424e59a0059f4f983e,DPLIngst,3379.99,HMA2_LHI_SSP245_r01_20810101-20901231_v01.0.nc,2024-02-14 13:55:02.000,23:59:59.999000,2090-12-31,00:00:00.000000,2081-01-01,59.99999,45.99999,111.0,19.99999,SIPSMetGenVersion,2.5
+"1.0","NSIDC","SC:HMA2_LHI.001:293211718","293211718","2024-02-22 10:41:08.594","2024-02-22 10:41:08.594","HMA2_LHI","001","HMA2_LHI_SSP245_r01_20910101-21001231_v01.0.nc","3540419036","MD5","e5cf1beaaa0b6d5086dbae7afcd3ea2e","DPLIngst","3376.41","HMA2_LHI_SSP245_r01_20910101-21001231_v01.0.nc","2024-02-14 13:57:53.000","23:59:59.999000","2100-12-31","00:00:00.000000","2091-01-01","59.99999","45.99999","111.0","19.99999","SIPSMetGenVersion","2.5"
+"1.0","NSIDC","SC:HMA2_LHI.001:293210825","293210825","2024-02-22 10:25:49.912","2024-02-22 10:25:49.912","HMA2_LHI","001","HMA2_LHI_SSP245_r02_20810101-20901231_v01.0.nc","3522292980","MD5","b4fe91f5d672fcd0e2af12b4195bb873","DPLIngst","3359.12","HMA2_LHI_SSP245_r02_20810101-20901231_v01.0.nc","2024-02-14 13:57:31.000","23:59:59.999000","2090-12-31","00:00:00.000000","2081-01-01","59.99999","45.99999","111.0","19.99999","SIPSMetGenVersion","2.5"
+"1.0","NSIDC","SC:HMA2_LHI.001:293210604","293210604","2024-02-22 10:22:35.677","2024-02-22 10:22:35.677","HMA2_LHI","001","HMA2_LHI_SSP245_r02_20910101-21001231_v01.0.nc","3529009099","MD5","9bf86dca71d422df73c1a1b2f744936f","DPLIngst","3365.53","HMA2_LHI_SSP245_r02_20910101-21001231_v01.0.nc","2024-02-14 13:59:30.000","23:59:59.999000","2100-12-31","00:00:00.000000","2091-01-01","59.99999","45.99999","111.0","19.99999","SIPSMetGenVersion","2.5"
+"1.0","NSIDC","SC:HMA2_LHI.001:293210978","293210978","2024-02-22 10:28:12.362","2024-02-22 10:28:12.362","HMA2_LHI","001","HMA2_LHI_SSP245_r11_20810101-20901231_v01.0.nc","3516486996","MD5","7df340e8ba79d4eb89436ae3f05a766d","DPLIngst","3353.58","HMA2_LHI_SSP245_r11_20810101-20901231_v01.0.nc","2024-02-14 14:03:45.000","23:59:59.999000","2090-12-31","00:00:00.000000","2081-01-01","59.99999","45.99999","111.0","19.99999","SIPSMetGenVersion","2.5"
+"1.0","NSIDC","SC:HMA2_LHI.001:293211681","293211681","2024-02-22 10:40:03.598","2024-02-22 10:40:03.598","HMA2_LHI","001","HMA2_LHI_SSP245_r11_20910101-21001231_v01.0.nc","3529494218","MD5","29c6dfb9bb36e9c978bda2a47d0666a8","DPLIngst","3365.99","HMA2_LHI_SSP245_r11_20910101-21001231_v01.0.nc","2024-02-14 13:59:42.000","23:59:59.999000","2100-12-31","00:00:00.000000","2091-01-01","59.99999","45.99999","111.0","19.99999","SIPSMetGenVersion","2.5"
+"1.0","NSIDC","SC:HMA2_LHI.001:293211204","293211204","2024-02-22 10:30:44.697","2024-02-22 10:30:44.697","HMA2_LHI","001","HMA2_LHI_SSP245_r12_20810101-20901231_v01.0.nc","3521450094","MD5","bb5189caf38a0aef8350a8ebb6e180c1","DPLIngst","3358.32","HMA2_LHI_SSP245_r12_20810101-20901231_v01.0.nc","2024-02-14 13:55:18.000","23:59:59.999000","2090-12-31","00:00:00.000000","2081-01-01","59.99999","45.99999","111.0","19.99999","SIPSMetGenVersion","2.5"
+"1.0","NSIDC","SC:HMA2_LHI.001:293211286","293211286","2024-02-22 10:32:30.473","2024-02-22 10:32:30.473","HMA2_LHI","001","HMA2_LHI_SSP245_r21_20810101-20901231_v01.0.nc","3540190866","MD5","993ffe138f1d268024b287d1c81afda6","DPLIngst","3376.19","HMA2_LHI_SSP245_r21_20810101-20901231_v01.0.nc","2024-02-14 14:07:23.000","23:59:59.999000","2090-12-31","00:00:00.000000","2081-01-01","59.99999","45.99999","111.0","19.99999","SIPSMetGenVersion","2.5"
+
+"",I,65◦ < α < 70◦,D1 F1 F2 G2 G4,wall or for large seeder heights.
+Slope angle,II,70◦< α < 75◦,C1 C2 D2 G6,The quantities extracted from each individual trajectory of each 2D
+"",III,75◦< α < 80◦,B1 E1 G1 G3 G5,"profile are grouped with respect to their associated seeder heights, h, for"
+"",IV,α > 80◦,A1,"a stochastic analysis. Thus, the stochastic analyses are performed with"
+"",a,σ < 12◦r,E1 G1 G2 G3 G4,"respect to 100 data points for each seeder (i.e., the data points associated"
+Roughness,b,12◦< σr < 15◦,A1 C1 D1 F1 G5 G6,"with 100 blocks thrown from a seeder). Here, an exclusion policy is"
+"",c,σ > 15◦r,B1 C2 D2 F2,applied for ‘nan’ values. The 90th quantiles are calculated for energy-
+"Target variable: E90,1",,,,,,,,,,,,,,Mean (SD)
+A1 B1,C1,C2,D1,D2,E1,F1,F2,G1,G2,G3,G4,G5,G6,
+h 0.99 0.95,0.98,0.97,0.87,0.97,0.96,0.96,0.97,0.99,0.92,0.97,0.94,0.99,0.98,0.96 (0.03)
+α − 0.86 0.74,− 0.04,− 0.39,0.51,0.49,− 0.48,0.28,− 0.21,− 0.42,0.53,0.13,0.58,− 0.23,0.19,0.05 (0.47)
+σr 0.77 − 0.22,− 0.25,0.08,0.18,− 0.37,0.07,− 0.06,0.22,0.13,− 0.21,0.08,0.14,− 0.14,0.00,0.03 (0.27)
+"Target variable: d̂95,1",,,,,,,,,,,,,,
+h 0.82 0.79,0.82,0.75,0.72,0.83,0.79,0.81,0.79,0.83,0.79,0.82,0.83,0.8,0.84,0.80 (0.03)
+α − 0.72 0.53,0.06,− 0.23,0.59,0.48,− 0.58,0.35,− 0.13,− 0.34,0.43,0.08,0.58,− 0.15,0.19,0.08 (0.42)
+σr 0.72 − 0.08,− 0.07,0.41,0.51,− 0.14,0.43,− 0.02,0.25,0.27,0.01,0.25,0.27,0.06,0.24,0.21 (0.25)
+"Target variable: d̂95,f",,,,,,,,,,,,,,
+h 0.8 0.71,0.86,0.85,0.85,0.81,0.89,0.88,0.85,0.82,0.82,0.8,0.91,0.82,0.88,0.84 (0.05)
+α − 0.74 0.53,− 0.15,− 0.45,0.53,0.41,− 0.6,0.23,− 0.25,− 0.38,0.23,− 0.07,0.5,− 0.24,0.25,− 0.01 (0.43)
+σr 0.71 − 0.16,− 0.11,0.29,0.37,− 0.2,0.29,− 0.,0.29,0.23,0.36,0.38,0.34,− 0.04,0.15,0.19 (0.25)
+graphic location and probability of future landslides based on,satellite imagery of,landslide-affected,areas,from,different
+the same conditions and triggers that caused previous land-,geographical locations,,and corresponding,labeled,inventories
+"slides [16]–[18]. Moreover, the resulting landslide probability",for training and testing the models [4]. The main contributions,,,,
+"maps determine how prone a landscape is to cause landslides,",of this paper are as follows:,,,,
+which is essential for landscape management and preventing,1) We examine the,,usage of freely,accessible,satellite
+land degradation dynamics and consequences [19].,data collected,from,four geographical,regions,across
+A landslide inventory dataset can be generated using differ-,the globe that,have,been affected by,landslides,due to
+ent methods [12]. Although a field survey is deemed one of,different trigger.,,,,
+the most reliable ways o create and update landslide inventory,2) We introduce,a,multi-source landslide,,benchmark
+"datasets, it is usually time-consuming and dangerous for large",dataset consisting,,"of 3,799 image",patches,by fusing
+"study areas and remote regions, respectively [20]. Also, man-",optical layers from Sentinel-2 with the DEM and slope,,,,
+ually deleting landslides through visual interpretation methods,layers derived from ALOS PALSAR.,,,,
+"based on aerial imagery are time- and resource-intensive,",3) We evaluate the,,landslide detection,performance,of 11
+requiring skilled experts for assembly and updating [10].,state-of-the-art,DL,segmentation models,based,on the
+Earth observation data and satellite imagery are considered,provided benchmark data set.,,,,
+"the most available sources of the data for landslide detection,",4) We provide a publicly available landslide benchmark and,,,,
+especially in large areas [21]. Although this geologic phe-,share our research findings to promote current and future,,,,
+"nomenon leaves discernible appearances and signatures, land-",advancements in machine learning and computer vision,,,,
+slide detection from satellite imagery—and hence updating the,within this field.,,,,
+inventory dataset—is a challenging task due to the low spec-,The presented study is organized as follows. Section II briefly,,,,
+tral heterogeneity between the existing surface features and,reviews the current state-of-the-art,,DL models,for,landslide
+"landslides in the image; the diverse climate categories, geol-",detection and surveys the applied satellite imagery. In Section,,,,
+"ogy, and geomorphology characteristics in different landslide-","III, we then describe",,our landslide benchmark,data,(Land-
+"affected areas also present challenges. Moreover, since a",slide4Sense) and its,division,into the training,and,testing
+landslide is usually the secondary disaster that takes place,segments. We concisely introduce selected state-of-the-art DL,,,,
+"during or after a trigger phenomena, its characteristics are",segmentation models,and,implement them,for the,training
+significantly related to the trigger. Semi-automated landslide,segment of the Landslide4Sense,,benchmark,data,in Section
+detection approaches have been developed based on machine,"IV. Finally, we use the",,testing segment to,evaluate,the mod-
+"learning models, some exploiting satellite imagery but mainly",els’ generalization performance and discuss,,,the segmentation,
+making use of images from commercial satellites or unmanned,results in Section V. Our conclusions are presented in Section,,,,
+aerial vehicles [22]. These approaches consist of two main,VI.,,,,
+phases: using pixel or object-based methods to extract the,,,,,
+"landslide’s representative features, and then applying a super-",,,,,
+vised machine learning model such as support vector machine,,II.,PRIOR WORK,,
+(SVM) and random forest (RF) models to classify the features,Annotated datasets,have,become increasingly,important,in
+as landslide and non-landslide pixels or segments [23]. The,the era of DL. There,have,been numerous,datasets,including
+object-based semi-automated landslide detection approaches,different data types,published,over the,"last decade,",each
+usually outperformed the pixel-based ones [24]. Since the,designed for a particular,,remote sensing,application,such as
+"former method uses homogeneous image objects, it can take",semantic segmentation,,"(e.g., land cover",classification,"[30]),"
+to account the textural and morphological characteristics of,"instance segmentation (e.g., Vehicle footprint extraction [31]),",,,,
+landslides in addition to merely the radiometric characteristics,"and object detection and localization (e.g., Airplane detection",,,,
+"from every single pixel [25]. Also, including expert knowledge","[32]). Therefore, the",,availability of such,datasets,to train
+and user-defined parameters for determining the optimum,and validate deep learning algorithms becomes a prerequisite,,,,
+"parameters, thresholds for landslide segments in object-based",for advanced research,,in remote sensing [33].,Depending,on
+methods help to provide higher accuracy than pixel-based,"the purpose of the project,",,researchers may,use RS,imagery
+"methods [26]. However, current object-based methods often",acquired from one source,,or a dataset compiled,,from RS
+"address mainly the low-level features of individual objects,","imagery from multiple sources. Additionally, given the current",,,,
+"which limits their generalization potential, since there is also",volume and velocity,of,"RS imagery, they",differ significantly,
+a need to include high-level features such as object topologies,"in terms of some critical parameters such as spatial resolution,",,,,
+"[27]. Additionally, although creating handcrafted high-level","temporal resolution, price, and availability. To the best of",,,,the
+features using expert knowledge is transparent and flexible,"authors’ knowledge,",there,is not yet a multi-source,,dataset
+"compared to deep learning (DL) models, it is laborious, time-",to provide globally distributed,,case study,areas of,landslide-
+"consuming, and subjective [28].",experienced regions for,,landslide detection from freely avail-,,
+The advent of the era of DL models like deep convolutional,"able RS imagery. In most cases, the landslide dataset develop-",,,,
+neural networks (DCNN) has provided unique opportunities,ment activities have,been,carried out on,an event-by-event,
+"for landslide detection from satellite imagery, mainly on a",basis at the local level.,,A good example,can be,found in
+"large scale [5], [29]. Thus far, these models have usually",Nepal’s prepared wide range of landslide inventories following,,,,
+followed a standard supervised learning framework based on,the Mw 7.8 (Gorkha) and Mw 7.3 (Dolakha) earthquakes on,,,,
+"",Kodagu District
+High,of Karnataka
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,Landslides,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+"",,,,,,,,,
+""
+""
+""
+""
+"",
+"",,,,
+"",,,,
+"",,,,
+""
+""
+""
+""
+""
+""
+""
+""
+"",,,,
+"",,,,
+"",,,,
+"",,,,
+"",,,,
+"",,,,
+""
+""
+"",,,,
+"",,,,
+"",,,,
+""
+""
+"",,,
+"",,,
+"",,,
+"",,
+"",,
+"",,
+"",,
+""
+""
+"",
+"",
+"",
+"",
+"",
+"",
+""
+""
+""
+""
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,Land,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+""
+""
+""
+"",
+"",
+""
+""
+""
+""
+""
+""
+""
+""
+"",,
+"",,
+"",,
+"",,
+"",,
+""
+""
+""
+"",
+"",
+"",
+"",,
+"",,
+"",,
+""
+""
+"",,
+"",,
+"",,
+"",
+"",
+""
+""
+""
+"",
+"",
+"",
+"",
+"",,,
+"",,,
+"",,,
+""
+""
+""
+"",
+"",
+"",
+""
+""
+"",
+"",
+""
+""
+""
+""
+""
+""
+""
+""
+""
+"",
+"",
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+"",
+"",
+"",
+"",
+"",
+"",
+""
+""
+""
+""
+""
+""
+"",
+"",
+"",,
+"",,
+"",,
+"",
+"",
+"",
+"",
+""
+""
+""
+""
+""
+""
+"",,
+"",,
+"",,
+"",
+"",
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+"",,,
+"",,,
+""
+""
+""
+""
+""
+""
+""
+""
+"",
+"",
+""
+""
+""
+""
+""
+""
+""
+""
+""
+"",,
+"",,
+"",,
+""
+""
+"",
+"",
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+"",
+"",
+""
+""
+""
+Landslides
+""
+Landslides
+""
+"",
+"",
+"",,
+"",,
+"",,
+"",,
+"",,
+"",,
+"",,
+"",,
+"",,
+"",,
+"",,
+"",,
+""
+""
+""
+""
+""
+""
+""
+"",
+"",
+""
+""
+""
+""
+"",,,,,
+"",,,,,
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+"",
+""
+""
+""
+"",
+"",
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+"",
+""
+""
+"",
+""
+""
+"",
+"",
+"",
+"",
+"",
+"",
+""
+""
+""
+""
+"",,,,
+"",,,,
+"",Band 1,Band 2,Band 3,Band 4,Band 5,Band 6 Band 7,Band 8,Band 9,,Band 10,Band 11,Band 12,Band 13,Band 14
+"",,,,,,(a) Iburi-Tobu area of Hokkaido,,,,,,,,
+4,,,,,,,,,,,,,,
+"",,,,,,the landslide category on the training set,,,,,,,,
+3,,,,,,the landslide category on the test set,,,,,,,,
+"",,,,,,the non-landslide category on the training set,,,,,,,,
+2,,,,,,the non-landslide category on the test set,,,,,,,,
+1,,,,,,,,,,,,,,
+0,,,,,,,,,,,,,,
+"",Band 1,Band 2,Band 3,Band 4,Band 5,Band 6 Band 7,Band 8,Band 9,,Band 10,Band 11,Band 12,Band 13,Band 14
+"",,,,,,(b) Kodagu District of Karnataka,,,,,,,,
+6,,,,,,,,,,,,,,
+"",,,,,,the landslide category on the training set,,,,,,,,
+5,,,,,,,,,,,,,,
+"",,,,,,the landslide category on the test set,,,,,,,,
+4,,,,,,the non-landslide category on the training set,,,,,,,,
+3,,,,,,the non-landslide category on the test set,,,,,,,,
+2,,,,,,,,,,,,,,
+1,,,,,,,,,,,,,,
+0,,,,,,,,,,,,,,
+"",Band 1,Band 2,Band 3,Band 4,Band 5,Band 6 Band 7,Band 8,Band 9,,Band 10,Band 11,Band 12,Band 13,Band 14
+"",,,,,,(c) Rasuwa District of Bagmati,,,,,,,,
+3,,,,,,,,,,,,,,
+"",,,,,,the landslide category on the training set,,,,,,,,
+"",,,,,,the landslide category on the test set,,,,,,,,
+2,,,,,,the non-landslide category on the training set,,,,,,,,
+The main,components,of,SQNet,include,the,ELU,activation,,,,Recall,Precision,F1
+"functions, a SqueezeNet-like encoder, parallel dilated convolu-",,,,,,,,,PSPNet [84] ContextNet [85],,52.03 49.29,61.55 70.77,56.3958.11
+"tions, and a decoder with SharpMask-like refinement modules.",,,,,,,,,DeepLab-v2 [86],,63.68,60.8,62.21
+"Specifically,",the parallel,dilated,,convolution,,layer,combines,,DeepLab-v3+ [87],,62.11,69.91,65.78
+the feature maps at different receptive field sizes by applying,,,,,,,,,FCN-8s [83] LinkNet [88],,63.05 67.02,68.66 66.76,65.7366.89
+four dilated convolutions with distinct dilation factors. In this,,,,,,,,,FRRN-A [89],,64.4,76.57,69.96
+"way, SQNet",can achieve,,multi-scale,feature,,learning,with,,FRRN-B [89],,76.16,64.93,70.1
+relatively light-weighted parameters.,,,,,,,,,SQNet [90] U-Net [91],,66.69 62.17,74.2 79.91,70.2469.94
+"",,,,,,,,,ResU-Net [93],,67.71,76.08,71.65
+"and classification, including unsupervised, self-supervised, and [10]","F. Guzzetti, A. C. Mondini, M. Cardinali, F. Fiorucci, M. Santangelo, and"
+semi-supervised methods for landslide detection.,"K.-T. Chang, “Landslide inventory maps: New tools for an old problem,”"
+"","Earth-Science Reviews, vol. 112, no. 1-2, pp. 42–66, 2012."
+It must be emphasized that since we provide single-shot [11],"B. Pradhan, M. N. Jebur, H. Z. M. Shafri, and M. S. Tehrany, “Data"
+"landslide images, Landslide4Sense has limitations for change",fusion technique using wavelet transform and taguchi methods for
+detection applications that require multi-temporal images to,automatic landslide detection from airborne laser scanning data and
+"","quickbird satellite imagery,” IEEE Trans. Geos. Remote Sens., vol. 54,"
+accurately annotate changes that happened on the ground,"no. 3, pp. 1610–1622, 2015."
+"surface, such as landslides. Adding additional information to [12]","M. Galli, F. Ardizzone, M. Cardinali, F. Guzzetti, and P. Reichenbach,"
+"the data set, such as forming material in input data and the","“Comparing landslide inventory maps,” Geomorphology, vol. 94, no."
+"","3-4, pp. 268–289, 2008."
+"type of landslide in labels, may result in slightly different [13]","D. M. Cruden and D. J. Varnes, “Landslides: investigation and mitiga-"
+predictions. We would also point out that finding cloud-free,"tion. Chapter 3-Landslide types and processes,” Transportation research"
+Sentinel-2 images forced us to acquire images from times,"board special report, no. 247, 1996."
+[14],"B. Yang, T. Xiao, L. Wang, and W. Huang, “Using Complementary"
+"different to the exact time of a landslide event. In addition,",Ensemble Empirical Mode Decomposition and Gated Recurrent Unit to
+data collectors need to provide clear guidance for users about,"Predict Landslide Displacements in Dam Reservoir,” 2022."
+the domain where the trained models based on the dataset [15],"C. Noviello, S. Verde, V. Zamparelli, G. Fornaro, A. Pauciullo, D. Reale,"
+"","G. Nicodemo, S. Ferlisi, G. Gulla, and D. Peduto, “Monitoring buildings"
+"are expected to lead to effective detection results. Therefore,",at landslide risk with sar: A methodology based on the use of multipass
+"as a final point, we emphasize that although our selected","interferometric data,” IEEE Geosci. Remote Sens. Mag., vol. 8, no. 1,"
+regions affected by landslides differ in various aspects such,"pp. 91–119, 2020."
+[16],"J. Corominas, C. van Westen, P. Frattini, L. Cascini, J.-P. Malet,"
+"as topography, triggers, and landslide shape and size, most","S. Fotopoulou, F. Catani, M. Van Den Eeckhaut, O. Mavrouli, and"
+"of them have high vegetation coverage, which is the main","F. Agliardi, “Recommendations for the quantitative analysis of landslide"
+reason for the often-limited model transferability to novel,"risk,” Bulletin of engineering geology and the environment, vol. 73, no. 2,"
+"","pp. 209–263, 2014."
+"areas without vegetation land cover. Then, the transferability of [17]","S. L. Gariano and F. Guzzetti, “Landslides in a changing climate,” Earth-"
+models trained on this dataset alone remains a big challenge,"Science Reviews, vol. 162, pp. 227–252, 2016."
+"for novel regions that are less vegetated. This however, as [18]","C. C. Khaing and T. L. L. Thein, “Prediction of Rainfall Based on Deep"
+"","Learning and Internet of Things to Prevent Landslide,” in 2020 IEEE"
+"mentioned above, is mitigated by the fact that the provided","9th Global Conference on Consumer Electronics (GCCE). IEEE, 2020,"
+dataset lends itself to extension using additional examples from,pp. 190–191.
+freely available Sentinel-2 images acquired for new landslide [19],"G. Titti, C. van Westen, L. Borgatti, A. Pasuto, and L. Lombardo, “When"
+"",Enough Is Really Enough? On the Minimum Number of Landslides to
+events.,"Build Reliable Susceptibility Models,” Geosciences, vol. 11, no. 11, p."
+"","469, 2021."
+[20],"O. Ghorbanzadeh, T. Blaschke, K. Gholamnia, S. R. Meena, D. Tiede,"
+ACKNOWLEDGMENT,"and J. Aryal, “Evaluation of different machine learning methods and"
+"detection,”The authors would like to thank the Institute of Advanced","deep-learning Remote Sensing, vol. 11, no. 2, p. 196, 2019.convolutional neural networks for landslide"
+Research in Artificial Intelligence (IARAI) for its support. [21],"recognition by deep convolutional neural network, L. change detection"
+"","Shi, M. Zhang, H. Ke, X. Fang, Z. Zhan, and S. Chen, “Landslide"
+"","recognition by deep convolutional neural network and change detection,”"
+REFERENCES,"IEEE Trans. Geos. Remote Sens., 2020."
+[22],"E. Karantanellis, V. Marinos, E. Vassilakis, and D. Hölbling, “Evaluation"
+"[1] F. Guzzetti, P. Reichenbach, F. Ardizzone, M. Cardinali, and M. Galli,",of Machine Learning Algorithms for Object-Based Mapping of
+"“Estimating the quality of landslide susceptibility models,” Geomorphol-","Landslide Zones Using UAV Data,” Geosciences, vol. 11, no. 8, p. 305,"
+"ogy, vol. 81, no. 1-2, pp. 166–184, 2006.",2021. [Online]. Available: https://www.mdpi.com/2076-3263/11/8/305
+"[2] P. Lima, S. Steger, T. Glade, N. Tilch, L. Schwarz, and A. Kociu, [23]","S. Tavakkoli Piralilou, H. Shahabi, B. Jarihani, O. Ghorbanzadeh,"
+“Landslide susceptibility mapping at national scale: a first attempt for,"T. Blaschke, K. Gholamnia, S. R. Meena, and J. Aryal, “Landslide"
+"Austria,” in Workshop on World Landslide Forum. Springer, 2017, pp.",Detection Using Multi-Scale Image Segmentation and Different
+943–951.,"Machine Learning Models in the Higher Himalayas,” Remote"
+"[3] B. Azmoon, A. Biniyaz, Z. Liu, and Y. Sun, “Image-Data-Driven Slope","Sensing, vol. 11, no. 21, p. 2575, 2019. [Online]. Available:"
+"Stability Analysis for Preventing Landslides Using Deep Learning,”",https://www.mdpi.com/2072-4292/11/21/2575
+"IEEE Access, vol. 9, pp. 150 623–150 636, 2021. [24]","R. N. Keyport, T. Oommen, T. R. Martha, K. S. Sajinkumar, and J. S."
+"[4] N. Prakash, A. Manconi, and S. Loew, “A new strategy to map landslides","Gierke, “A comparative analysis of pixel-and object-based detection of"
+"with a generalized convolutional neural network,” Scientific Reports,","landslides from very high-resolution images,” Int. J. Appl. Earth Obs."
+"vol. 11, no. 1, pp. 1–15, 2021.","Geoinf., vol. 64, pp. 1–11, 2018."
+"[5] O. Ghorbanzadeh, A. Crivellari, P. Ghamisi, H. Shahabi, and [25]","T. Blaschke, “Object based image analysis for remote sensing,” ISPRS"
+"T. Blaschke, “A comprehensive transferability evaluation of U-Net and","J. Photogramm. Remote Sens., vol. 65, no. 1, pp. 2–16, 2010."
+ResU-Net for landslide detection from Sentinel-2 data (case study areas [26],"K. Pawłuszek, S. Marczak, A. Borkowski, and P. Tarolli, “Multi-aspect"
+"from Taiwan, China, and Japan),” Scientific Reports, vol. 11, no. 1, pp.",analysis of object-oriented landslide detection based on an extended set
+"1–20, 2021.","of LiDAR-derived terrain features,” ISPRS International Journal of Geo-"
+"[6] S. Zhang, R. Li, F. Wang, and A. Iio, “Characteristics of landslides","Information, vol. 8, no. 8, p. 321, 2019."
+"triggered by the 2018 Hokkaido Eastern Iburi earthquake, Northern [27]","O. Ghorbanzadeh, H. Shahabi, A. Crivellari, S. Homayouni, T. Blaschke,"
+"Japan,” Landslides, vol. 16, no. 9, pp. 1691–1708, 2019.","and P. Ghamisi, “Landslide detection using deep learning and object-"
+"[7] P. Wallemacq and R. House, “Economic Losses, Poverty & Disasters:","based image analysis,” Landslides, pp. 1–11, 2022."
+"1998–2017,” CRED, UNISDR, Geneva, Switzerland, p. 31, 2018. [28]","P. Amatya, D. Kirschbaum, T. Stanley, and H. Tanyas, “Landslide"
+"[8] F. Guzzetti, S. L. Gariano, S. Peruccacci, M. T. Brunetti, and","mapping using object-based image analysis and open source tools,”"
+"M. Melillo, “Rainfall and landslide initiation,” Rainfall, pp. 427–450,","Engineering Geology, vol. 282, p. 106000, 2021."
+2022. [Online]. Available: https://linkinghub.elsevier.com/retrieve/pii/ [29],"J. Gawlikowski, S. Saha, A. Kruspe, and X. X. Zhu, “An advanced"
+B9780128225448000123,dirichlet prior network for out-of-distribution detection in remote sens-
+"[9] K. Dai, Z. Li, Q. Xu, R. Bürgmann, D. G. Milledge, R. Tomas, X. Fan,","ing,” IEEE Trans. Geos. Remote Sens., 2022."
+"C. Zhao, X. Liu, J. Peng et al., “Entering the era of earth observation- [30]","J. Wang, Z. Zheng, A. Ma, X. Lu, and Y. Zhong, “Loveda: A remote"
+"based landslide warning systems: A novel and exciting framework,”","sensing land-cover dataset for domain adaptive semantic segmentation,”"
+[31] L. Mou,and,X.,X.,"Zhu,",“Vehicle,instance,segmentation,from,aerial,,"sentinel-2 images,”",Big,Earth,"Data,",pp.,"1–26,",feb,2022.,[Online].
+image and video using a multitask learning residual fully convolutional,,,,,,,,,,,Available: https://doi.org/10.1080/20964471.2022.2031544,,,,,,,,
+"network,”","IEEE Trans. Geos. Remote Sens.,",,,,,,"vol. 56, no. 11, pp. 6699–",,,[52],"M. Zhang, W. Shi,",S.,"Chen,","Z. Zhan,",and,Z.,"Shi,",“Deep,multiple
+"6711, 2018.",,,,,,,,,,,instance learning for,landslide,,"mapping,”",,IEEE Geosci.,,Remote,Sens.
+"[32] Y. Wang,",S.,M.,A.,"Bashir,","M. Khan,","Q. Ullah,","R. Wang,",Y.,"Song,",,"Lett., vol. 18, no. 10, pp. 1711–1715, 2020.",,,,,,,,
+"Z. Guo,",and,Y.,"Niu,",“Remote,sensing,image,super-resolution,,and,[53],"P. Liu, Y. Wei, Q.","Wang,","Y. Chen,",,and,"J. Xie,",“Research,,on post-
+object detection: Benchmark and state of,,,,,,"the art,” Expert Systems with",,,,,earthquake landslide,extraction,,algorithm,,based,on,improved,U-Net
+"Applications, p. 116793, 2022.",,,,,,,,,,,"model,” Remote Sensing, vol. 12, no. 5, p. 894, 2020.",,,,,,,,
+"[33] L. E. Budde,",,J.,"Schmidt,",,"A. Javanmard-Ghareshiran,",,"S. Hunger,",,and,[54],"L. P. Soares, H. C. Dias, and C. H. Grohmann, “Landslide segmentation",,,,,,,,
+"D. Iwaszczuk,",,“Development,,,of a,database,for benchmark,datasets,in,,with U-Net: Evaluating,,different,sampling,,methods,and,patch,"sizes,”"
+"photogrammetry and remote sensing,” ISPRS Annals of the Photogram-",,,,,,,,,,,"arXiv preprint arXiv:2007.06672, 2020.",,,,,,,,
+"metry, Remote",,Sensing,,and,Spatial,Information,"Sciences,",vol.,"1, pp.",[55],"O. Ghorbanzadeh,",S. R.,"Meena,",H.,S.,"S. Abadi,",,S. T.,"Piralilou,"
+"187–193, 2022.",,,,,,,,,,,"L. Zhiyong, and T.","Blaschke,",,“Landslide,,Mapping,Using,Two,Main
+"[34] K. Roback,",M.,K.,"Clark,",,"A. J. West,","D. Zekkos,","G. Li, S.","F. Gallen,",,,Deep-Learning Convolution Neural Network (CNN) Streams Combined,,,,,,,,
+"D. Chamlagain,",,,and,J. W.,"Godt, “The","size,","distribution, and",mobility,,,"by the Dempster—Shafer (DS) model,” IEEE J. Sel. Topics Appl. Earth",,,,,,,,
+of landslides,,caused,,by the,2015 mw7.,8 gorkha,"earthquake,","nepal,”",,,"Observ. Remote Sens., 2020.",,,,,,,,
+"Geomorphology, vol. 301, pp. 121–138, 2018.",,,,,,,,,,[56],"X. X. Zhu, D. Tuia,",L.,"Mou,",G.-S.,"Xia,",L.,"Zhang,",F.,"Xu, and"
+"[35] A. Valagussa, P. Frattini, G. Crosta, and E. Valbuzzi, “Regional analysis",,,,,,,,,,,"F. Fraundorfer, “Deep",learning,,in remote,,sensing:,A,comprehensive,
+"of distribution of pre and post 2015 nepal earthquake landslides,” in EGU",,,,,,,,,,,"review and list of resources,” IEEE Geosci. Remote Sens. Mag., vol. 5,",,,,,,,,
+"General Assembly Conference Abstracts, 2016, pp. EPSC2016–17 045.",,,,,,,,,,,"no. 4, pp. 8–36, 2017.",,,,,,,,
+"[36] T. R. Martha,",,P.,"Roy,",R.,"Mazumdar,",K. B.,"Govindharaj,",and,K. V.,[57],"L. Nava, O. Monserrat, and F. Catani, “Improving Landslide Detection",,,,,,,,
+"Kumar, “Spatial characteristics of landslides triggered by the 2015 mw",,,,,,,,,,,"on SAR Data through Deep Learning,” arXiv preprint arXiv:2105.00782,",,,,,,,,
+7.8 (gorkha),,and,mw,7.3,(dolakha),earthquakes,"in nepal,”","Landslides,",,,2021.,,,,,,,,
+"vol. 14, no. 2, pp. 697–704, 2017.",,,,,,,,,,[58],"M. Machielse, “Landslide detection and mapping on Synthetic Aperture",,,,,,,,
+"[37] A. Krizhevsky, I. Sutskever, and G. E. Hinton, “Imagenet classification",,,,,,,,,,,Radar amplitude satellite,,"imagery,” 2021.",,,,,,
+with deep,convolutional,,,neural,"networks,”",Proc.,Neural Inf.,Process.,,[59],"B. Fang, G. Chen, L. Pan, R. Kou, and L. Wang, “GAN-based siamese",,,,,,,,
+"Syst., vol. 25, 2012.",,,,,,,,,,,framework for landslide,,inventory,mapping,,using,bi-temporal,,optical
+"[38] C. Ye, Y. Li, P. Cui, L. Liang, S. Pirasteh, J. Marcato, W. N. Gonçalves,",,,,,,,,,,,"remote sensing images,” IEEE Geosci. Remote Sens. Lett., vol. 18, no. 3,",,,,,,,,
+"and J. Li, “Landslide Detection of Hyperspectral Remote Sensing Data",,,,,,,,,,,"pp. 391–395, 2020.",,,,,,,,
+Based on,Deep,,Learning,,"With Constrains,”",,IEEE J. Sel. Topics,,Appl.,[60],"F. Catani, “Landslide",detection,,by deep,learning,,of,non-nadiral,and
+"Earth Observ. Remote Sens., vol. 12, no. 12, pp. 5047–5060, 2019.",,,,,,,,,,,crowdsourced optical,"images,”",,"Landslides,",,"vol. 18,",no.,"3, pp.",1025–
+"[39] T. Wang, M. Liu, H. Zhang, X. Jiang, Y. Huang, and X. Jiang, “Landslide",,,,,,,,,,,"1044, 2021.",,,,,,,,
+Detection Based on Improved YOLOv5 and Satellite,,,,,,,"Images,”",in 2021,,[61],"O. Ghorbanzadeh,",S. R.,"Meena,",T.,"Blaschke,",and,J.,"Aryal,",“UAV-
+4th International,,,Conference,,on,Pattern Recognition,and,Artificial,,,based slope failure,detection,using,deep-learning,,,convolutional,,neural
+Intelligence (PRAI).,,,,"IEEE, 2021, pp. 367–371.",,,,,,,"networks,” Remote Sensing, vol. 11, no. 17, p. 2046, 2019.",,,,,,,,
+"[40] B. Yu, F.","Chen,",,C.,"Xu, L.","Wang,","and N. Wang,",“Matrix,SegNet:,A,,,,,,,,,,
+"Kumar,Practical Deep Learning Framework for Landslide Mapping from Images",,,,,,,,,,[62],"S. L. Ullo, A. Mohan,",,"A. Sebastianelli,",,,S. E.,"Ahamed,",B.,
+"R. Dwivedi, and G. R. Sinha, “A new mask R-CNN-based method forof Different Areas with Different Spatial Resolutions,” Remote Sensing,",,,,,,,,,,,,,,,,,,,
+"IEEE J. Sel. Topics Appl. Earth Observ.vol. 13, no. 16, p. 3158, 2021.",,,,,,,,,,,"improved landslide detection,”",,,,,,,,
+"Remote Sens., vol. 14, pp. 3799–3810, 2021.[41] T. Liu and T. Chen, “A Comparation of CNN and DenseNet for Land-",,,,,,,,,,,,,,,,,,,
+"slide Detection,”",,,in,2021,IEEE International,,Geoscience,and Remote,,[63],"R. Kitchin and G. McArdle, “What makes big data, big data? exploring",,,,,,,,
+Sensing Symposium IGARSS,,,,,". IEEE, 2021, pp. 8440–8443.",,,,,,"the ontological characteristics of 26 datasets,” Big Data & Society, vol. 3,",,,,,,,,
+"[42] Z. Su, J. K. Chow, P. S. Tan, J. Wu, Y. K. Ho, and Y.-H. Wang, “Deep",,,,,,,,,,,"no. 1, p. 2053951716631130, 2016.",,,,,,,,
+convolutional neural network–based pixel-wise landslide inventory map-,,,,,,,,,,[64],"G. Marcus, “Deep",learning:,,A critical,,"appraisal,”",,arXiv,preprint
+"ping,” Landslides, vol. 18, no. 4, pp. 1421–1443, 2021.",,,,,,,,,,,"arXiv:1801.00631, 2018.",,,,,,,,
+"[43] J. Long,","E. Shelhamer,",,,and,"T. Darrell,",“Fully,convolutional,networks,,[65],"M. A. Alcorn, Q.","Li, Z.","Gong,",C.,"Wang,",L.,"Mai,",W.-S.,"Ku, and"
+for semantic,,"segmentation,”",,,in fooledProc.,IEEE Conf.,Comput.,Vis. Pattern,,,"A. Nguyen, “Strike",(with),a pose:,Neural,,networks,are,easily,
+"by strange poses of familiar objects,” in Proc. IEEE Conf. Comput. Vis.Recognit.",", 2015, pp. 3431–3440.",,,,,,,,,,,,,,,,,,
+"[44] O. Ronneberger, P. Fischer, and T. Brox, “U-net: Convolutional networks",,,,,,,,,,,"Pattern Recognit., 2019, pp. 4845–4854.",,,,,,,,
+for biomedical,,image,,"segmentation,”",,in International,Conference,,on,[66],T. Stanley and D.,"B. Kirschbaum,",,“A,heuristic,,approach,,to global
+Medical image computing and computer-assisted intervention.,,,,,,,,"Springer,",,,landslide susceptibility,"mapping,”",,Natural,,"hazards,",vol.,"87,","no. 1, pp."
+"2015, pp. 234–241.",,,,,,,,,,,"145–164, 2017.",,,,,,,,
+"[45] T. Lei, Y.","Zhang,",,Z.,"Lv,","S. Li, S.","Liu, and","A. K. Nandi,",“Landslide,,[67],"M. C. Hansen, S. V.","Stehman,",,P. V.,"Potapov,",T.,R.,"Loveland,",J. R.
+inventory,mapping,,from,,bitemporal,images,using deep convolutional,,,,"Townshend, R. S. DeFries,",,K.,"W. Pittman,",,"B. Arunarwati,",,,"F. Stolle,"
+"neural networks,”",,,"IEEE Geosci. Remote Sens. Lett.,",,,,"vol. 16, no. 6, pp.",,,,M. K. Steininger et,"al.,",“Humid,tropical,forest,clearing,,from,2000 to
+"982–986, 2019.",,,,,,,,,,,2005 quantified by,using,multitemporal,,and,multiresolution,,,remotely
+"[46] X. Gao,","T. Chen,",,R.,"Niu,","and A. Plaza,",“Recognition,and,mapping,of,,"sensed data,” Proceedings",,of the,National,,Academy,,"of Sciences,",vol.
+"landslide using a fully convolutional DenseNet and influencing factors,”",,,,,,,,,,,"105, no. 27, pp. 9439–9444, 2008.",,,,,,,,
+"IEEE J. Sel. Topics Appl. Earth Observ. Remote Sens., vol. 14, pp. 7881–",,,,,,,,,,[68],"P. Bouysse, C. Heyd, and D. Rambourg, “Geological map of the world",,,,,,,,
+"7894, 2021.",,,,,,,,,,,"at 1: 50,000,000,” Explanatory Notes, vol. 3, 2009.",,,,,,,,
+"[47] W. Qi, M.","Wei,",,W.,"Yang,","C. Xu, and","C. Ma,",“Automatic,mapping,of,[69],"H. Yamagishi and F. Yamazaki, “Landslides by the 2018 Hokkaido Iburi-",,,,,,,,
+"landslides by the ResU-net,” Remote Sensing, vol. 12, no. 15, p. 2487,",,,,,,,,,,,"Tobu Earthquake on September 6,” Landslides, vol. 15, no. 12, pp. 2521–",,,,,,,,
+2020.,,,,,,,,,,,"2524, 2018.",,,,,,,,
+[48] Y. Yi and,,W.,"Zhang,",,“A new,deep-learning-based,approach,,for,[70],"K. Chen, R. Blong, and C. Jacobson, “MCE-RISK: integrating multicri-",,,,,,,,
+earthquake-triggered landslide detection from single-temporal RapidEye,,,,,,,,,,,teria evaluation and,GIS,for risk,decision-making,,,in,natural,"hazards,”"
+"satellite imagery,” IEEE J. Sel. Topics Appl. Earth Observ. Remote Sens.,",,,,,,,,,,,"Environmental Modelling & Software, vol. 16, no. 4, pp. 387–397, 2001.",,,,,,,,
+"vol. 13, pp. 6166–6176, 2020.",,,,,,,,,,[71],"T. Ishikawa, M. Yoshimi, K. Isobe, and S. Yokohama, “Reconnaissance",,,,,,,,
+"[49] N. Yokoya,",K.,"Yamanoi,",,,"W. He, G.","Baier, B.","Adriano, H.","Miura,",and,,report on geotechnical,damage,,caused,by,2018 hokkaido,,eastern,iburi
+"S. Oishi,",“Breaking,,,the Limits,of Remote,Sensing,by Simulation,,and,,"earthquake with jma seismic intensity 7,” Soils and Foundations, vol. 61,",,,,,,,,
+Deep Learning,,for,,Flood,and Debris,Flow,"Mapping,” arXiv",preprint,,,"no. 4, pp. 1151–1171, 2021.",,,,,,,,
+"arXiv:2006.05180, 2020.",,,,,,,,,,[72],"H. Shahabi, M. Rahimzad,",,S.,Tavakkoli,"Piralilou,",,O.,"Ghorbanzadeh,",
+"[50] Z. Lv, T.","Liu,",X.,"Kong,",,"C. Shi, and",J. A.,"Benediktsson,",“Landslide,,,"S. Homayouni, T. Blaschke,",,S.,"Lim,",and,"P. Ghamisi,",,“Unsupervised,
+inventory mapping with bitemporal aerial remote sensing images based,,,,,,,,,,,Deep Learning for,Landslide,Detection,,from,Multispectral,,,Sentinel-2
+"on the dual-path fully convolutional network,” IEEE J. Sel. Topics Appl.",,,,,,,,,,,"Imagery,” 2021.",,,,,,,,
+"Earth Observ. Remote Sens., vol. 13, pp. 4575–4584, 2020.",,,,,,,,,,[73],"A. P. Yunus, X. Fan, S. S. Subramanian, D. Jie, and Q. Xu, “Unraveling",,,,,,,,
+"[51] O. Ghorbanzadeh,",,,K.,"Gholamnia,",,"and P. Ghamisi,",“The,application,,,the drivers of intensified,,landslide,regimes,,in western,,"ghats,","india,”"
+1,Security Classification,Official,,,
+2,Distribution,General,,,
+3,"Report / Documentversion",(a)   Issue  no. 01,(b) Revision & Date,27.02.2023,
+4,Report / Document Type,Technical report,,,
+5,"Document ControlNumber",NRSC-RSA-GSG-GMED-FEB 2023-TR-0002167-V1.0,,,
+6,Title,"Landslide atlas of India (Mapping, Monitoring and R&D studies using Remote Sensingdata)",,,
+7,Particulars of collation,"Pages76","Figures55","Tables04","References16"
+8,Author(s),"Nirmala Jain, Priyom Roy , Tapas Ranjan Martha, Punit Jalan and Aishwarya Nanda",,,
+9,Affiliation of authors,"Geohazards and Mineral Exploration Division, Geosciences Group, RSAA, NRSC/ISRO",,,
+10,Scrutiny mechanism,"Compiled byNirmala Jain S/E 'SE'Priyom Roy S/E 'SE'","Reviewed byDr. I. C. DasGroup Head, GSG","Approved and ControlledDr. K Vinod KumarDeputy Director (RSAA)",
+11,Originating unit,"National Remote Sensing Centre, Hyderabad-500037",,,
+12,"Sponsor(s)/ Name andAddress",Indian Space Research Organisation,,,
+13,Date of  Initiation,01 November 2022,,,
+14,Date of Publication,27 February 2023,,,
+15,"Abstract:ThisAtlasprovidesthedetailsoflandslidepresentinLandslideprovincesofIndiaincludingdamageassessmentofspecificlandslidelocations.Geospatiallandslideinventorydatabaseconsistingof~80,000landslidesinIndiamappedbyNRSC/ISROunderitsDMSprogrammeduringthe1998-2022periodisreportedhere.Thedatabasecoverslandslidevulnerableregionsin17statesand02UTsofIndiaintheHimalayasandWestern Ghats. The database includes three types of landslide inventory – seasonal, event-based and route-wiseforthe1998-2022period.Seasonalinventorycontainspan-Indialandslidedatabasecorrespondingtothe2014and 2017 rainy season in India. Event-based inventory contains details of some of the major triggering events suchas Kedarnathand Kerala disasters, and Sikkim earthquake as well asfew large valley blocking landslides. Route-wise inventory contains details of landslides along selected routes of tourist and pilgrimage importance. Satellitedata of high to very high resolution such as IRS-1D PAN+LISS-III, Resourcesat-1, 2 and 2A LISS-IV Mx, Cartosat-1and 2S, data from International satellites (Sentinel-1&2, Pleiades and WorldView) and Aerial images were used inthe mapping of landslides. Some of the mapped landslides were validated in the field using mobile App and newsreports.Thedatabasewereusedtorank147districtsin17statesand02UTsofIndiafortheirexposuretolandslidesintermsofkeysocio-economicparameters.Lastlyadvancedtechniquesinlandslidedetection,modeling and prediction are also explained.Keywords: Landslides, Remote Sensing, Landslide Provinces in India, Landslide Inventory",,,,
+"",,Abbreviated Classification of Slope Movements
+"",,TYPE OF MATERIAL
+"",,Engineering Soils
+Type of movement,,
+"",,Bed Rock
+"",,Predominantly Course Predominantly Fine
+Fall,,Rock Fall Debris Fall Earth Fall
+Topple,,Rock Topple Debris Topple Earth Topple
+Slide,Rotational (Slump),Rotational Debris Slide Rotational Earth Slide
+"",Translational,Translational Rock Slide Translational Debris Slide TranslationalEarth Slide
+Lateral Spread,,Rock Spread Debris Spread Earth Spread
+Flow,,Rock Flow (Deep creep) Debris Flow (Soil Creep) Earth Flow (Soil Creep)
+Complex,,Combination of two or more principal types of movement
+Sl. No.,State/UTs,Monsoon season,Monsoon season 2017,Field-based/year,Event-based / year,Total
+"",,2014,,,,
+1,Jammu and Kashmir,6826,19,434 / 2011,1 / 2015,7280
+2,Ladakh,23,,-,-,23
+3,Himachal Pradesh,922,172,413 / 1998,1/ 2017,1561
+"",,,,,51/2013,
+"",,,,,2/2021,
+4,Uttarakhand,1593,455,1419 / 1998,32/2003,11219
+"",,,,,307/2010,
+"",,,,,473 / 2012,
+"",,,,,6610 / 2013,
+"",,,,,1 / 2017,
+"",,,,,329/2021,
+"",,,,,1/2022,
+5,Sikkim,73,79,-,1408 / 2011,1569
+"",,,,,8 / 2012,
+"",,,,,1/ 2016,
+6,West Bengal,24,82,-,66 / 2011,172
+7,Arunachal Pradesh,2904,4709,-,75 / 2016,7689
+"",,,,,1/2021,
+8,Nagaland,54,2071,-,7/2017,2132
+9,Manipur,379,4559,-,556/2017,5494
+"",,,,,1/2022,
+10,Mizoram,1205,2254,-,8926/2017,12385
+11,Tripura,56,8014,-,-,8070
+12,Assam,1243,793,-,533/2017,2569
+"",,,,,5091/2022,
+13,Meghalaya,2127,512,-,-,2639
+14,Maharashtra,97,3,-,5012/2021,5112
+15,Goa,2,1,-,-,3
+16,Karnataka,82,19,-,993/2018,1094
+17,Kerala,9,45,-,5191/2018,6039
+"",,,,,756/2019,
+"",,,,,09/2020,
+"",,,,,29/2021,
+18,Tamil Nadu,79,8,-,603/2018,690
+19,Haryana,-,100,-,-,100
+"",Total,"17,698","23,895","2,266","37,074",80933
+District,,District,,
+District,State,,District,State
+Rank,,Rank,,
+1 Rudraprayag,Uttaranchal,36,Coimbatore,Tamil Nadu
+2 Tehri Garhwal,Uttaranchal,37,Solan,Himachal Pradesh
+3 Thrissur,Kerala,38,Aizawl,Mizoram
+4 Rajauri,J&K,39,Lunglei,Mizoram
+5 Palakkad,Kerala,40,Kamrup,Assam
+6 Poonch,J&K,41,Dindigul,Tamil Nadu
+7 Malappuram,Kerala,42,Kathua,J&K
+8 South District,Sikkim,43,Kanniyakumari,Tamil Nadu
+9 East District,Sikkim,44,Kasaragod,Kerala
+10 Kozhikode,Kerala,45,Lawngtlai,Mizoram
+11 Imphal West,Manipur,46,Kinnaur,Himachal Pradesh
+12 Kodagu,Karnataka,,,
+"",,47,Hailakandi,Assam
+Kerala13 Wayanad,Kerala,48,Kollam,
+"",,49,Goalpara,Assam
+14 Jammu,J&K,,,
+"",,50,Bageshwar,Uttaranchal
+15 Ernakulam,Kerala,,,
+"",,51,North District,Sikkim
+16 Mandi,Himachal Pradesh,,,
+"",,52,Anantanag,J&K
+17 Udhampur,J&K,,,
+"",,53,Hassan,Karnataka
+18 Idukki,Kerala,,,
+19 Chamoli,Uttaranchal,54,Dakshina Kannada,Karnataka
+20 West District,Sikkim,55,Karbi Anglong,Assam
+21 Uttarkashi,Uttaranchal,56,Lohit,Arunachal Pradesh
+22 Cachar,Assam,57,Kullu,Himachal Pradesh
+23 Garhwal,Uttaranchal,58,Baramulla,J&K
+24 Kottayam,Kerala,59,Theni,Tamil Nadu
+25 Hamirpur,Himachal Pradesh,60,Kolasib,Mizoram
+26 Kannur,Kerala,61,Shimla,Himachal Pradesh
+27 Pulwama,J&K,62,Kangra,Himachal Pradesh
+28 Thiruvananthapuram,Kerala,63,Churachandpur,Manipur
+29 Dehra Dun,Uttaranchal,64,East Garo Hills,Meghalaya
+30 Bilaspur,Himachal Pradesh,65,Champawat,Uttaranchal
+31 West Garo Hills,Meghalaya,66,West Khasi Hills,Meghalaya
+32 Chamba,Himachal Pradesh,67,Ribhoi,Meghalaya
+33 Pathanamthitta,Kerala,68,Naini Tal,Uttaranchal
+34 East Khasi Hills,Meghalaya,69,Jaintia Hills,Meghalaya
+35 Darjiling,West Bengal,70,Una,Himachal Pradesh
+"DistrictRank",District,State
+71,Mamit,Mizoram
+72,Tirunelveli,Tamil Nadu
+73,Papum Pare,Arunachal Pradesh
+74,Tawang,Arunachal Pradesh
+75,West Tripura,Tripura
+76,North Tripura,Tripura
+77,Udupi,Karnataka
+78,East Siang,Arunachal Pradesh
+79,Doda,J&K
+80,Thane,Maharashtra
+81,Almora,Uttaranchal
+82,Serchhip,Mizoram
+83,North Cachar Hills,Assam
+84,Lower Subansiri,Arunachal Pradesh
+85,The Nilgiris,Tamil Nadu
+86,Pithoragarh,Uttaranchal
+87,West Kameng,Arunachal Pradesh
+88,Sirmaur,Himachal Pradesh
+89,Phek,Nagaland
+90,South Garo Hills,Meghalaya
+91,Changlang,Arunachal Pradesh
+92,Chikmagalur,Karnataka
+93,Mon,Nagaland
+94,Tuensang,Nagaland
+95,Bongaigaon,Assam
+96,Lower Dibang Valley,Arunachal Pradesh
+97,Senapati,Manipur
+98,Srinagar,J&k
+99,Morigaon,Assam
+100,Tamenglong,Manipur
+101,East Kameng,Arunachal Pradesh
+102,Saiha,Mizoram
+103,Shimoga,Karnataka
+104,Upper Siang,Arunachal Pradesh
+105,Mokokchung,Nagaland
+106,Kohima,Nagaland
+107,Pune,Maharashtra
+108,West Siang,Arunachal Pradesh
+109,Raygarh,Maharashtra
+"DistrictRank",District,State
+110,Dhalai,Tripura
+111,North Goa,Goa
+112,Ukhrul,Manipur
+113,Kurung Kumey,Arunachal Pradesh
+114,Sindhudurg,Maharashtra
+115,Tirap,Arunachal Pradesh
+116,Uttara Kannada,Karnatka
+"",,
+"",,
+"",,
+"",,
+"",,
+"",,
+"",,
+124,Haveri,Karnataka
+125,Anjaw,Arunachal Pradesh
+126,Lahul & Spiti,Himachal Pradesh
+127,Dhubri,Assam
+128,Nashik,Maharashtra
+129,Ratnagiri,Maharashtra
+130,South Tripura,Tripura
+131,Ahmadnagar,Maharashtra
+132,Kupwara,J&k
+133,Kolhapur,Maharashtra
+134,Satara,Maharashtra
+135,Dibang Valley,Arunachal Pradesh
+136,Leh-ladakh,J&K
+137,Karimganj,Assam
+138,Alappuzha,Kerala
+139,Mumbai Suburban,Maharashtra
+140,Mumbai,Maharashtra
+141,Thoubal,Manipur
+142,Imphal East,Manipur
+143,Bishnupur,Manipur
+144,Zunheboto,Nagaland
+145,Wokha,Nagaland
+146,Haridwar,Uttaranchal
+147,Udham Singh Nagar,Uttaranchal
+connected to track warning/speed lights.,Figure 3 shows signals that indicate all 12 sensors are
+"",functioning correctly following the installation. In this
+2.1 Monitoring Array 1,"example, a train has passed by, and the signals at each"
+"",sensor show a similar character with a slight offset in time
+Array 1 was installed in September 2008 along a 250 foot,as expected due to the velocity of the train travelling
+"",Figure 10. Photo identifying the location of some of the
+Array 2 was installed in November 2012 alongside a 600,sensor for Array 2.  The sensors are placed in a natural

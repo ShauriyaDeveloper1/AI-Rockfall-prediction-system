@@ -1,0 +1,576 @@
+/* Soil Rock Classifier Styling */
+
+.soil-rock-classifier {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.classifier-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.classifier-header h2 {
+  margin: 0 0 10px 0;
+  color: #00ffff;
+  font-size: 28px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.classifier-header p {
+  margin: 0;
+  color: #a0a0a0;
+  font-size: 16px;
+}
+
+.classifier-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Upload Section */
+.upload-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.upload-area {
+  border: 3px dashed rgba(0, 255, 255, 0.4);
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 255, 255, 0.02);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-area:hover,
+.upload-area.drag-active {
+  border-color: #00ffff;
+  background: rgba(0, 255, 255, 0.05);
+  transform: scale(1.02);
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.upload-icon {
+  font-size: 64px;
+  opacity: 0.7;
+}
+
+.upload-placeholder h3 {
+  margin: 0;
+  color: #00ffff;
+  font-size: 24px;
+}
+
+.upload-placeholder p {
+  margin: 0;
+  color: #a0a0a0;
+  font-size: 16px;
+}
+
+.supported-formats {
+  font-size: 14px !important;
+  color: #666 !important;
+}
+
+.image-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.image-preview img {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+}
+
+.image-info {
+  text-align: center;
+}
+
+.image-info p {
+  margin: 0 0 10px 0;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.change-image-btn {
+  background: linear-gradient(45deg, #00ffff, #0096ff);
+  border: none;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.change-image-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+}
+
+.action-buttons {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.classify-btn {
+  background: linear-gradient(45deg, #28a745, #20c997);
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+.classify-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.5);
+}
+
+.classify-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Results Section */
+.results-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.result-header h3 {
+  margin: 0;
+  color: #00ffff;
+  font-size: 22px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.confidence-badge {
+  background: linear-gradient(45deg, #28a745, #20c997);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.predicted-class {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.predicted-class h4 {
+  margin: 0 0 10px 0;
+  color: #a0a0a0;
+  font-size: 16px;
+}
+
+.predicted-class .class-name {
+  font-size: 32px;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  padding: 15px;
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+/* Detailed Info */
+.detailed-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.info-card h5 {
+  margin: 0 0 15px 0;
+  color: #00ffff;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-card p {
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+.info-card ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #ffffff;
+}
+
+.info-card li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* Risk Assessment */
+.risk-assessment {
+  border-left: 4px solid #ffc107;
+}
+
+.risk-level {
+  margin-bottom: 20px;
+}
+
+.risk-indicator {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.stability-score {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stability-score label {
+  color: #a0a0a0;
+  font-weight: 500;
+}
+
+.score-bar {
+  width: 100%;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.8s ease;
+  background: linear-gradient(90deg, currentColor, rgba(255, 255, 255, 0.2));
+}
+
+.score-text {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Characteristics */
+.characteristics {
+  border-left: 4px solid #17a2b8;
+}
+
+/* Mining Implications */
+.implications {
+  border-left: 4px solid #dc3545;
+}
+
+/* All Predictions */
+.all-predictions {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.all-predictions h5 {
+  margin: 0 0 20px 0;
+  color: #00ffff;
+  font-size: 18px;
+}
+
+.predictions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.prediction-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prediction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.prediction-header .class-name {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.prediction-header .confidence {
+  font-weight: bold;
+  color: #00ffff;
+}
+
+.confidence-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffff, #0096ff);
+  border-radius: 4px;
+  transition: width 0.8s ease;
+}
+
+/* Sample Images */
+.sample-images {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.sample-images h3 {
+  margin: 0 0 25px 0;
+  color: #00ffff;
+  font-size: 22px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.samples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.sample-item {
+  text-align: center;
+}
+
+.sample-image {
+  width: 100%;
+  height: 120px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sample-image:hover {
+  transform: scale(1.05);
+  border-color: #00ffff;
+}
+
+.sample-image span {
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  position: relative;
+}
+
+.sample-image.alluvial {
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+}
+
+.sample-image.black {
+  background: linear-gradient(135deg, #2C3E50, #34495E);
+}
+
+.sample-image.cinder {
+  background: linear-gradient(135deg, #7F8C8D, #95A5A6);
+}
+
+.sample-image.red {
+  background: linear-gradient(135deg, #C0392B, #E74C3C);
+}
+
+.sample-item p {
+  margin: 0;
+  color: #a0a0a0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .soil-rock-classifier {
+    padding: 15px;
+  }
+
+  .classifier-header h2 {
+    font-size: 24px;
+  }
+
+  .classifier-header p {
+    font-size: 14px;
+  }
+
+  .upload-area {
+    padding: 30px 20px;
+    min-height: 250px;
+  }
+
+  .upload-icon {
+    font-size: 48px;
+  }
+
+  .upload-placeholder h3 {
+    font-size: 20px;
+  }
+
+  .image-preview img {
+    max-width: 250px;
+    max-height: 250px;
+  }
+
+  .predicted-class .class-name {
+    font-size: 24px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .samples-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .soil-rock-classifier {
+    padding: 10px;
+  }
+
+  .upload-area {
+    padding: 20px 15px;
+    min-height: 200px;
+  }
+
+  .upload-placeholder h3 {
+    font-size: 18px;
+  }
+
+  .predicted-class .class-name {
+    font-size: 20px;
+  }
+
+  .samples-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .classify-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}

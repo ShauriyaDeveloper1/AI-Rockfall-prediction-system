@@ -1,0 +1,788 @@
+/* 3D Mine View Holographic Styling */
+
+.mine-view-3d {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.mine-view-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 150, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Loading Screen */
+.mine-view-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  color: #00ffff;
+}
+
+.hologram-loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.loader-ring {
+  position: absolute;
+  border: 2px solid transparent;
+  border-top: 2px solid #00ffff;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+.loader-ring:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  animation-duration: 2s;
+}
+
+.loader-ring:nth-child(2) {
+  width: 70px;
+  height: 70px;
+  top: 15px;
+  left: 15px;
+  border-top-color: #0096ff;
+  animation-duration: 1.5s;
+  animation-direction: reverse;
+}
+
+.loader-ring:nth-child(3) {
+  width: 40px;
+  height: 40px;
+  top: 30px;
+  left: 30px;
+  border-top-color: #64b5f6;
+  animation-duration: 1s;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Header */
+.mine-view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.header-left h2 {
+  margin: 0;
+  color: #00ffff;
+  font-size: 24px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.header-left p {
+  margin: 5px 0 0 0;
+  color: #a0a0a0;
+  font-size: 14px;
+}
+
+.emergency-escape .escape-btn {
+  background: linear-gradient(45deg, #ff4757, #ff6b7a);
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+}
+
+.emergency-escape .escape-btn:hover,
+.emergency-escape .escape-btn.active {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 71, 87, 0.5);
+  background: linear-gradient(45deg, #ff3742, #ff5b6a);
+}
+
+/* Main Content */
+.mine-view-content {
+  display: flex;
+  height: calc(100vh - 100px);
+}
+
+.mine-visualization {
+  flex: 1;
+  position: relative;
+  padding: 20px;
+}
+
+.hologram-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.hologram-mine {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: rotateX(15deg) rotateY(5deg) translateY(0px); }
+  50% { transform: rotateX(15deg) rotateY(5deg) translateY(-10px); }
+}
+
+/* Mine Pit */
+.mine-pit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: 
+    radial-gradient(ellipse at center, 
+      rgba(139, 69, 19, 0.8) 0%,
+      rgba(101, 67, 33, 0.9) 30%,
+      rgba(62, 39, 35, 1) 70%,
+      rgba(0, 0, 0, 1) 100%);
+  border-radius: 50%;
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  box-shadow: 
+    inset 0 0 50px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.mine-levels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.mine-level {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(139, 69, 19, 0.8) 20%,
+    rgba(139, 69, 19, 1) 50%,
+    rgba(139, 69, 19, 0.8) 80%,
+    transparent 100%);
+  border-radius: 50px;
+}
+
+.mine-level.level-0 { top: 15%; }
+.mine-level.level-1 { top: 25%; }
+.mine-level.level-2 { top: 35%; }
+.mine-level.level-3 { top: 45%; }
+.mine-level.level-4 { top: 55%; }
+.mine-level.level-5 { top: 65%; }
+
+/* Processing Plant */
+.processing-plant {
+  position: absolute;
+  top: -60px;
+  right: -50px;
+  z-index: 10;
+}
+
+.plant-building {
+  width: 80px;
+  height: 60px;
+  background: linear-gradient(135deg, #4a4a4a, #2a2a2a);
+  border: 1px solid #00ffff;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  position: relative;
+}
+
+.plant-building::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  width: 8px;
+  height: 20px;
+  background: #666;
+  border-radius: 4px;
+}
+
+.plant-building::after {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 22px;
+  width: 4px;
+  height: 15px;
+  background: #888;
+  border-radius: 2px;
+}
+
+.plant-label {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #00ffff;
+  white-space: nowrap;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
+}
+
+/* Risk Zones */
+.risk-zone {
+  position: absolute;
+  width: 120px;
+  height: 80px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.risk-zone:hover {
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.zone-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.risk-indicator {
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: bold;
+  margin: 2px 0;
+  display: inline-block;
+}
+
+.risk-indicator.low { background: rgba(40, 167, 69, 0.8); }
+.risk-indicator.medium { background: rgba(255, 193, 7, 0.8); color: #000; }
+.risk-indicator.high { background: rgba(253, 126, 20, 0.8); }
+.risk-indicator.critical { background: rgba(220, 53, 69, 0.8); }
+
+/* Sensor Nodes */
+.sensor-node {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #28a745;
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sensor-node.warning { border-color: #ffc107; }
+.sensor-node.critical { border-color: #dc3545; }
+
+.sensor-node:hover,
+.sensor-node.selected {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+.sensor-pulse {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  border: 2px solid inherit;
+  animation: pulse 2s infinite;
+  opacity: 0.7;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 0.3; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.sensor-icon {
+  font-size: 16px;
+  z-index: 2;
+}
+
+.sensor-tooltip {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #00ffff;
+  border-radius: 5px;
+  padding: 8px;
+  min-width: 120px;
+  text-align: center;
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.sensor-node:hover .sensor-tooltip {
+  opacity: 1;
+}
+
+/* GNSS Elements */
+.gnss-perimeter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.gnss-point {
+  position: absolute;
+  color: #00ffff;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.gnss-west {
+  top: 20%;
+  left: -80px;
+}
+
+/* Escape Routes */
+.escape-routes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.escape-route {
+  position: absolute;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(255, 255, 0, 0.8),
+    transparent);
+  height: 4px;
+  border-radius: 2px;
+  animation: emergencyPulse 1.5s infinite;
+}
+
+.escape-route.route-1 {
+  top: 30%;
+  left: 10%;
+  right: 20%;
+  transform: rotate(-15deg);
+}
+
+.escape-route.route-2 {
+  bottom: 30%;
+  left: 20%;
+  right: 10%;
+  transform: rotate(15deg);
+}
+
+@keyframes emergencyPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.escape-point {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  text-align: center;
+  color: #ffff00;
+}
+
+.escape-icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+/* Holographic Grid */
+.holographic-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.grid-line {
+  position: absolute;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(0, 255, 255, 0.3) 20%,
+    rgba(0, 255, 255, 0.5) 50%,
+    rgba(0, 255, 255, 0.3) 80%,
+    transparent 100%);
+}
+
+.grid-line.horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.grid-line.vertical {
+  height: 100%;
+  width: 1px;
+  background: linear-gradient(0deg, 
+    transparent 0%,
+    rgba(0, 255, 255, 0.3) 20%,
+    rgba(0, 255, 255, 0.5) 50%,
+    rgba(0, 255, 255, 0.3) 80%,
+    transparent 100%);
+}
+
+/* Layer Controls */
+.layer-controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  border-radius: 10px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  z-index: 20;
+}
+
+.layer-controls h4 {
+  margin: 0 0 10px 0;
+  color: #00ffff;
+  font-size: 14px;
+}
+
+.layer-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.layer-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.layer-toggle input {
+  margin-right: 8px;
+  accent-color: #00ffff;
+}
+
+/* Sidebar */
+.mine-sidebar {
+  width: 350px;
+  background: rgba(0, 0, 0, 0.9);
+  border-left: 1px solid rgba(0, 255, 255, 0.3);
+  padding: 20px;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+}
+
+.current-site-risk {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.risk-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.risk-badge.high {
+  background: linear-gradient(45deg, #ff6b7a, #ff4757);
+  color: white;
+  box-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
+}
+
+.active-alarms {
+  color: #ff4757;
+  font-weight: bold;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.5; }
+}
+
+.sensor-network h3 {
+  color: #00ffff;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.sensor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sensor-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sensor-item:hover,
+.sensor-item.selected {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: #00ffff;
+  transform: translateX(5px);
+}
+
+.sensor-item.warning {
+  border-left: 4px solid #ffc107;
+}
+
+.sensor-item.critical {
+  border-left: 4px solid #dc3545;
+}
+
+.sensor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.sensor-name {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.sensor-status {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.sensor-status.active { background: #28a745; color: white; }
+.sensor-status.warning { background: #ffc107; color: #000; }
+.sensor-status.critical { background: #dc3545; color: white; }
+
+.sensor-details {
+  font-size: 12px;
+  color: #a0a0a0;
+}
+
+.sensor-location {
+  font-weight: 500;
+  color: #00ffff;
+}
+
+/* Emergency Actions */
+.emergency-actions {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 71, 87, 0.3);
+}
+
+.emergency-actions h3 {
+  color: #ff4757;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
+}
+
+.escape-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.escape-action {
+  background: linear-gradient(45deg, #ff6b7a, #ff4757);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.escape-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+}
+
+/* Sensor Details Modal */
+.sensor-details-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 2px solid #00ffff;
+  border-radius: 15px;
+  width: 400px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.modal-header h4 {
+  margin: 0;
+  color: #00ffff;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.modal-header button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-body > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-body label {
+  color: #a0a0a0;
+  font-weight: 500;
+}
+
+.modal-body span.value {
+  font-weight: bold;
+}
+
+.modal-body span.value.warning {
+  color: #ffc107;
+}
+
+.modal-body span.value.critical {
+  color: #dc3545;
+}
+
+.modal-body span.value.active {
+  color: #28a745;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .mine-view-content {
+    flex-direction: column;
+  }
+  
+  .mine-sidebar {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .mine-pit {
+    width: 500px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mine-view-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .mine-pit {
+    width: 400px;
+    height: 280px;
+  }
+  
+  .layer-controls {
+    position: relative;
+    margin-bottom: 20px;
+  }
+}

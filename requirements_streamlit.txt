@@ -1,0 +1,11 @@
+# Streamlit Dashboard Requirements
+streamlit==1.28.0
+plotly==5.15.0
+pandas==2.0.3
+numpy==1.24.3
+requests==2.31.0
+python-dotenv==1.0.0
+
+# Optional for enhanced features
+pillow==10.0.0
+opencv-python==4.8.0.76

@@ -1,0 +1,769 @@
+/* Global Modern Holographic Theme */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  position: relative;
+  text-align: left;
+}
+
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 150, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255, 0, 150, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container-fluid {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+/* Leaflet Map Styling */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3) !important;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.modern-map {
+  border-radius: 15px !important;
+  overflow: hidden !important;
+}
+
+.leaflet-popup-content {
+  margin: 8px 12px;
+  line-height: 1.4;
+  background: rgba(0, 0, 0, 0.8) !important;
+  color: #ffffff !important;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.leaflet-popup-content h6 {
+  margin-bottom: 8px;
+  color: #00ffff !important;
+}
+
+.modern-popup {
+  background: rgba(0, 0, 0, 0.9) !important;
+  color: #ffffff !important;
+  border-radius: 10px;
+  padding: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.modern-popup h6 {
+  color: #00ffff !important;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.modern-popup p {
+  color: #ffffff !important;
+  margin-bottom: 5px;
+}
+
+.modern-popup strong {
+  color: #00ffff !important;
+}
+
+/* Modern Button Classes */
+.modern-btn {
+  transition: all 0.3s ease !important;
+  border-radius: 25px !important;
+  font-weight: 500 !important;
+}
+
+.modern-btn:hover {
+  transform: translateY(-2px) !important;
+}
+
+/* Modern Card Classes */
+.modern-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 15px !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.3s ease !important;
+}
+
+.modern-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(0, 255, 255, 0.3) !important;
+}
+
+.modern-card-header {
+  background: rgba(0, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3) !important;
+  border-radius: 15px 15px 0 0 !important;
+}
+
+/* Modern Alert Classes */
+.modern-alert {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 10px !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Modern Table Classes */
+.modern-table {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+.modern-table-header {
+  background: rgba(0, 255, 255, 0.1) !important;
+  border-bottom: 2px solid rgba(0, 255, 255, 0.3) !important;
+}
+
+.modern-table-header th {
+  border: none !important;
+  padding: 15px !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5) !important;
+}
+
+.modern-table-row {
+  transition: all 0.3s ease !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.modern-table-row:hover {
+  background: rgba(0, 255, 255, 0.1) !important;
+  transform: translateX(5px) !important;
+}
+
+.modern-table-row td {
+  border: none !important;
+  padding: 12px 15px !important;
+  vertical-align: middle !important;
+}
+
+/* Modern Badge Classes */
+.modern-badge {
+  border-radius: 15px !important;
+  padding: 8px 12px !important;
+  font-weight: 500 !important;
+  text-shadow: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Modern Empty State */
+.modern-empty-state {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-radius: 15px !important;
+  margin: 20px !important;
+}
+
+/* Modern Weather and Forecast Specific Styles */
+.modern-weather-item {
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 5px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modern-weather-item:hover {
+  background: rgba(0, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modern-forecast-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 15px !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.modern-forecast-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.today-card {
+  border: 2px solid rgba(0, 255, 255, 0.5) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3) !important;
+  animation: pulse 2s infinite;
+}
+
+.modern-progress {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px !important;
+  height: 8px !important;
+}
+
+.modern-progress .progress-bar {
+  border-radius: 10px !important;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.modern-recommendations {
+  padding-left: 0 !important;
+}
+
+.modern-recommendations li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.modern-recommendations li:hover {
+  background: rgba(0, 255, 255, 0.05);
+  padding-left: 10px;
+  border-radius: 5px;
+}
+
+.modern-recommendations li:last-child {
+  border-bottom: none;
+}
+
+.modern-hr {
+  border-color: rgba(0, 255, 255, 0.3) !important;
+  margin: 20px 0 !important;
+}
+
+/* Modern Sensor Specific Styles */
+.modern-sensor-icon {
+  font-size: 1.2em;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.modern-table-row:hover .modern-sensor-icon {
+  transform: scale(1.2);
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+.modern-placeholder {
+  padding: 40px;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.modern-placeholder:hover {
+  border-color: rgba(0, 255, 255, 0.4);
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.modern-placeholder .pulse {
+  color: #00ffff !important;
+}
+
+/* Chart Styling Overrides */
+.chart-container canvas {
+  border-radius: 10px !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Modern Stats */
+.modern-stats p {
+  margin-bottom: 10px !important;
+  padding: 5px 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.modern-stats p:last-child {
+  border-bottom: none !important;
+}
+
+/* Modern Navbar Styling */
+.navbar {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+  color: #00ffff !important;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  margin: 0 2px;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #00ffff !important;
+  background: rgba(0, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.dropdown-menu {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border: 1px solid rgba(0, 255, 255, 0.3) !important;
+  backdrop-filter: blur(10px);
+}
+
+.dropdown-item {
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background: rgba(0, 255, 255, 0.1) !important;
+  color: #00ffff !important;
+}
+
+/* Modern Card Styling */
+.card, .dashboard-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 15px !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.card:hover, .dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 255, 255, 0.3) !important;
+}
+
+.card-header {
+  background: rgba(0, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  border-radius: 15px 15px 0 0 !important;
+  font-weight: 600;
+}
+
+.card-body {
+  color: #ffffff !important;
+}
+
+/* Modern Button Styling */
+.btn {
+  border-radius: 25px !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none !important;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #007bff, #0056b3) !important;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+.btn-success {
+  background: linear-gradient(45deg, #28a745, #1e7e34) !important;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+.btn-warning {
+  background: linear-gradient(45deg, #ffc107, #e0a800) !important;
+  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+  color: #000 !important;
+}
+
+.btn-warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+}
+
+.btn-danger, .btn-emergency {
+  background: linear-gradient(45deg, #dc3545, #c82333) !important;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+.btn-danger:hover, .btn-emergency:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+}
+
+.btn-info {
+  background: linear-gradient(45deg, #17a2b8, #138496) !important;
+  box-shadow: 0 4px 15px rgba(23, 162, 184, 0.3);
+}
+
+.btn-info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(23, 162, 184, 0.4);
+}
+
+.btn-emergency {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.5; }
+}
+
+/* Modern Badge Styling */
+.badge {
+  border-radius: 12px !important;
+  padding: 6px 12px !important;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  font-size: 0.75em;
+}
+
+/* Modern Table Styling */
+.table {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+.table td, .table th {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  padding: 12px !important;
+  vertical-align: middle;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > td {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 255, 255, 0.1) !important;
+}
+
+.table-sm td {
+  padding: 0.5rem 0.25rem;
+}
+
+/* Modern Alert Styling */
+.alert, .alert-item {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 10px !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(10px);
+  border-left: 4px solid;
+  animation: slideIn 0.3s ease-in;
+}
+
+.alert-danger {
+  background: rgba(220, 53, 69, 0.2) !important;
+  border-color: rgba(220, 53, 69, 0.5) !important;
+  border-left-color: #dc3545;
+}
+
+.alert-warning {
+  background: rgba(255, 193, 7, 0.2) !important;
+  border-color: rgba(255, 193, 7, 0.5) !important;
+  border-left-color: #ffc107;
+}
+
+.alert-success {
+  background: rgba(40, 167, 69, 0.2) !important;
+  border-color: rgba(40, 167, 69, 0.5) !important;
+}
+
+.alert-info {
+  background: rgba(23, 162, 184, 0.2) !important;
+  border-color: rgba(23, 162, 184, 0.5) !important;
+}
+
+/* Modern Form Styling */
+.form-control {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 10px !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(10px);
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(0, 255, 255, 0.5) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.form-label {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* Modern Progress Bar */
+.progress {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px !important;
+  height: 8px;
+}
+
+.progress-bar {
+  border-radius: 10px !important;
+  background: linear-gradient(45deg, #00ffff, #0096ff) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Modern Spinner */
+.spinner-border {
+  border-color: rgba(0, 255, 255, 0.3) !important;
+  border-top-color: #00ffff !important;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+/* Risk Level Styling */
+.risk-low {
+  color: #28a745 !important;
+}
+
+.risk-medium {
+  color: #ffc107 !important;
+}
+
+.risk-high {
+  color: #fd7e14 !important;
+}
+
+.risk-critical {
+  color: #dc3545 !important;
+}
+
+.risk-gauge {
+  position: relative;
+}
+
+.risk-indicator {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Weather and Forecast Styling */
+.weather-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #00ffff;
+}
+
+.forecast-card {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.forecast-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.2);
+}
+
+/* Chart Containers */
+.chart-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  padding: 15px;
+}
+
+/* Status Indicators */
+.status-indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-online {
+  background-color: #28a745;
+  animation: pulse 2s infinite;
+}
+
+.status-offline {
+  background-color: #dc3545;
+}
+
+.status-warning {
+  background-color: #ffc107;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00ffff, #0096ff);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #0096ff, #00ffff);
+}
+
+/* Animation Classes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Text Colors */
+.text-primary { color: #00ffff !important; }
+.text-success { color: #28a745 !important; }
+.text-warning { color: #ffc107 !important; }
+.text-danger { color: #dc3545 !important; }
+.text-info { color: #17a2b8 !important; }
+.text-muted { color: #6c757d !important; }
+
+/* Display Text */
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  color: #00ffff !important;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5) !important;
+}
+
+.lead {
+  color: #a0a0a0 !important;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+}
+
+p {
+  color: #a0a0a0 !important;
+}
+
+small {
+  color: #888 !important;
+}
+
+/* Footer */
+.footer {
+  background: rgba(0, 0, 0, 0.8) !important;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-top: 1px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  color: #ffffff !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 10px;
+  }
+  
+  .card, .dashboard-card {
+    margin-bottom: 15px;
+  }
+  
+  .navbar-nav {
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+  }
+  
+  .display-4 {
+    font-size: 2rem;
+  }
+  
+  .display-5 {
+    font-size: 1.5rem;
+  }
+  
+  .lead {
+    font-size: 1rem;
+  }
+  
+  .forecast-card {
+    margin-bottom: 0.5rem;
+  }
+  
+  .weather-conditions {
+    text-align: center;
+  }
+  
+  .weather-conditions .col-md-2 {
+    margin-bottom: 1rem;
+  }
+}
