@@ -6,6 +6,8 @@ import axios from 'axios';
 const DataSources = () => {
   const [activeTab, setActiveTab] = useState('drone');
   const [showUploadModal, setShowUploadModal] = useState(false);
+  const [showImageModal, setShowImageModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
   const [uploadType, setUploadType] = useState('');
   const [uploadProgress, setUploadProgress] = useState(0);
   const [dataSources, setDataSources] = useState({
@@ -125,6 +127,37 @@ const DataSources = () => {
   const handleUpload = (type) => {
     setUploadType(type);
     setShowUploadModal(true);
+    setUploadProgress(0);
+  };
+
+  const handleFileUpload = async (formData) => {
+    try {
+      setUploadProgress(10);
+      
+      const response = await axios.post('/api/data-sources/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        onUploadProgress: (progressEvent) => {
+          const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+          setUploadProgress(percentCompleted);
+        },
+      });
+
+      if (response.data.success !== false) {
+        setUploadProgress(100);
+        setTimeout(() => {
+          setShowUploadModal(false);
+          fetchDataSources(); // Refresh data
+        }, 1000);
+      } else {
+        throw new Error(response.data.error || 'Upload failed');
+      }
+    } catch (error) {
+      console.error('Upload error:', error);
+      setError('Upload failed: ' + (error.response?.data?.error || error.message));
+      setUploadProgress(0);
+    }
   };
 
   const simulateUpload = () => {
@@ -160,6 +193,21 @@ const DataSources = () => {
       'geological': <FaImage />
     };
     return icons[type] || <FaFileImage />;
+  };
+
+  const handleViewImage = (item) => {
+    setSelectedImage(item);
+    setShowImageModal(true);
+  };
+
+  const handleDownloadFile = (item) => {
+    // In a real implementation, this would download the actual file
+    console.log('Downloading:', item.filename);
+  };
+
+  const handleDeleteFile = (item) => {
+    // In a real implementation, this would delete the file
+    console.log('Deleting:', item.filename);
   };
 
   const renderDataTable = (data, type) => (
@@ -223,7 +271,17 @@ const DataSources = () => {
             <td>
               {item.analysis && (
                 <div>
-                  {Object.entries(item.analysis).slice(0, 2).map(([key, value]) => (
+                  {type === 'drone' && (
+                    <div>
+                      <small><strong>Cracks:</strong> {item.analysis.cracks_detected}</small><br />
+                      <small><strong>Vegetation:</strong> {item.analysis.vegetation_coverage}%</small><br />
+                      <small><strong>Risk:</strong> <Badge bg={
+                        item.analysis.overall_risk === 'high' ? 'danger' : 
+                        item.analysis.overall_risk === 'medium' ? 'warning' : 'success'
+                      }>{item.analysis.overall_risk}</Badge></small>
+                    </div>
+                  )}
+                  {type !== 'drone' && Object.entries(item.analysis).slice(0, 2).map(([key, value]) => (
                     <div key={key}>
                       <small><strong>{key.replace('_', ' ')}:</strong> {value}</small>
                     </div>
@@ -232,15 +290,34 @@ const DataSources = () => {
               )}
             </td>
             <td>
-              <Button variant="outline-primary" size="sm" className="me-1">
-                <FaEye />
-              </Button>
-              <Button variant="outline-success" size="sm" className="me-1">
-                <FaDownload />
-              </Button>
-              <Button variant="outline-danger" size="sm">
-                <FaTrash />
-              </Button>
+              <div className="d-flex gap-1">
+                {(type === 'drone' || type === 'satellite') && (
+                  <Button 
+                    variant="outline-primary" 
+                    size="sm" 
+                    onClick={() => handleViewImage(item)}
+                    title="View Image"
+                  >
+                    <FaEye />
+                  </Button>
+                )}
+                <Button 
+                  variant="outline-success" 
+                  size="sm"
+                  onClick={() => handleDownloadFile(item)}
+                  title="Download"
+                >
+                  <FaDownload />
+                </Button>
+                <Button 
+                  variant="outline-danger" 
+                  size="sm"
+                  onClick={() => handleDeleteFile(item)}
+                  title="Delete"
+                >
+                  <FaTrash />
+                </Button>
+              </div>
             </td>
           </tr>
         ))}
@@ -387,15 +464,26 @@ const DataSources = () => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={(e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            formData.append('type', uploadType);
+            handleFileUpload(formData);
+          }}>
             <Form.Group className="mb-3">
               <Form.Label>Select Files</Form.Label>
-              <Form.Control type="file" multiple accept={
-                uploadType === 'drone' ? 'image/*,.tiff,.tif' :
-                uploadType === 'dem' ? '.tif,.tiff,.asc,.xyz' :
-                uploadType === 'satellite' ? '.tif,.tiff,.jp2' :
-                '.shp,.kml,.gpx,.geojson'
-              } />
+              <Form.Control 
+                type="file" 
+                name="file"
+                multiple 
+                required
+                accept={
+                  uploadType === 'drone' ? 'image/*,.tiff,.tif' :
+                  uploadType === 'dem' ? '.tif,.tiff,.asc,.xyz' :
+                  uploadType === 'satellite' ? '.tif,.tiff,.jp2' :
+                  '.shp,.kml,.gpx,.geojson'
+                } 
+              />
               <Form.Text className="text-muted">
                 {uploadType === 'drone' && 'Supported: JPG, PNG, TIFF, GeoTIFF'}
                 {uploadType === 'dem' && 'Supported: GeoTIFF, ASCII Grid, XYZ'}
@@ -408,10 +496,20 @@ const DataSources = () => {
               <Form.Label>Location</Form.Label>
               <Row>
                 <Col>
-                  <Form.Control type="number" placeholder="Latitude" step="0.000001" />
+                  <Form.Control 
+                    type="number" 
+                    name="latitude"
+                    placeholder="Latitude" 
+                    step="0.000001" 
+                  />
                 </Col>
                 <Col>
-                  <Form.Control type="number" placeholder="Longitude" step="0.000001" />
+                  <Form.Control 
+                    type="number" 
+                    name="longitude"
+                    placeholder="Longitude" 
+                    step="0.000001" 
+                  />
                 </Col>
               </Row>
             </Form.Group>
@@ -422,15 +520,19 @@ const DataSources = () => {
                   <Form.Label>Flight Details</Form.Label>
                   <Row>
                     <Col>
-                      <Form.Control type="number" placeholder="Altitude (m)" />
+                      <Form.Control 
+                        type="number" 
+                        name="altitude"
+                        placeholder="Altitude (m)" 
+                      />
                     </Col>
                     <Col>
-                      <Form.Select>
-                        <option>Camera Type</option>
-                        <option>RGB</option>
-                        <option>Thermal</option>
-                        <option>Multispectral</option>
-                        <option>LiDAR</option>
+                      <Form.Select name="camera_type">
+                        <option value="">Camera Type</option>
+                        <option value="rgb">RGB</option>
+                        <option value="thermal">Thermal</option>
+                        <option value="multispectral">Multispectral</option>
+                        <option value="lidar">LiDAR</option>
                       </Form.Select>
                     </Col>
                   </Row>
@@ -440,7 +542,12 @@ const DataSources = () => {
 
             <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
-              <Form.Control as="textarea" rows={3} placeholder="Add description or notes..." />
+              <Form.Control 
+                as="textarea" 
+                name="description"
+                rows={3} 
+                placeholder="Add description or notes..." 
+              />
             </Form.Group>
 
             {uploadProgress > 0 && (
@@ -452,15 +559,130 @@ const DataSources = () => {
                 <ProgressBar now={uploadProgress} />
               </div>
             )}
+
+            <Modal.Footer className="border-0 px-0">
+              <Button variant="secondary" onClick={() => setShowUploadModal(false)}>
+                Cancel
+              </Button>
+              <Button variant="primary" type="submit" disabled={uploadProgress > 0 && uploadProgress < 100}>
+                <FaUpload className="me-1" />
+                Start Upload
+              </Button>
+            </Modal.Footer>
           </Form>
         </Modal.Body>
+      </Modal>
+
+      {/* Image Preview Modal */}
+      <Modal show={showImageModal} onHide={() => setShowImageModal(false)} size="xl">
+        <Modal.Header closeButton>
+          <Modal.Title>
+            <FaImage className="me-2" />
+            {selectedImage?.filename} - Analysis Results
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {selectedImage && (
+            <Row>
+              <Col md={8}>
+                <div className="text-center">
+                  <img 
+                    src={`data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=`} 
+                    alt={selectedImage.filename}
+                    className="img-fluid rounded"
+                    style={{ maxHeight: '400px', backgroundColor: '#f8f9fa' }}
+                  />
+                  <div className="mt-3">
+                    <p className="text-muted">
+                      Note: This is a placeholder image. In a real implementation, 
+                      the actual uploaded image would be displayed here.
+                    </p>
+                  </div>
+                </div>
+              </Col>
+              <Col md={4}>
+                <h5>File Information</h5>
+                <Table responsive size="sm">
+                  <tbody>
+                    <tr>
+                      <td><strong>Filename:</strong></td>
+                      <td>{selectedImage.filename}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Type:</strong></td>
+                      <td><Badge bg="info">{selectedImage.type}</Badge></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Size:</strong></td>
+                      <td>{selectedImage.size}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Upload Date:</strong></td>
+                      <td>{new Date(selectedImage.timestamp).toLocaleString()}</td>
+                    </tr>
+                    {selectedImage.altitude && (
+                      <tr>
+                        <td><strong>Altitude:</strong></td>
+                        <td>{selectedImage.altitude}m</td>
+                      </tr>
+                    )}
+                    {selectedImage.resolution && (
+                      <tr>
+                        <td><strong>Resolution:</strong></td>
+                        <td>{selectedImage.resolution}</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </Table>
+
+                {selectedImage.analysis && (
+                  <>
+                    <h5 className="mt-4">Analysis Results</h5>
+                    <Table responsive size="sm">
+                      <tbody>
+                        {Object.entries(selectedImage.analysis).map(([key, value]) => (
+                          <tr key={key}>
+                            <td><strong>{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:</strong></td>
+                            <td>
+                              {Array.isArray(value) ? value.join(', ') : 
+                               typeof value === 'number' ? value.toLocaleString() : 
+                               value}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                  </>
+                )}
+
+                {selectedImage.location && (
+                  <>
+                    <h5 className="mt-4">Location</h5>
+                    <Table responsive size="sm">
+                      <tbody>
+                        <tr>
+                          <td><strong>Latitude:</strong></td>
+                          <td>{selectedImage.location.lat}</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Longitude:</strong></td>
+                          <td>{selectedImage.location.lng}</td>
+                        </tr>
+                      </tbody>
+                    </Table>
+                  </>
+                )}
+              </Col>
+            </Row>
+          )}
+        </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowUploadModal(false)}>
-            Cancel
+          <Button variant="secondary" onClick={() => setShowImageModal(false)}>
+            Close
           </Button>
-          <Button variant="primary" onClick={simulateUpload}>
-            <FaUpload className="me-1" />
-            Start Upload
+          <Button variant="primary" onClick={() => handleDownloadFile(selectedImage)}>
+            <FaDownload className="me-1" />
+            Download File
           </Button>
         </Modal.Footer>
       </Modal>
