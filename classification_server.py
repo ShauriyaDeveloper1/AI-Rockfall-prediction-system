@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Simple Image Classification Server for Soil/Rock Analysis
 Runs on port 5001 with Wikipedia integration

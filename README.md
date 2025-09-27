@@ -9,6 +9,11 @@
 
 A comprehensive, production-ready AI-powered system that predicts and alerts about potential rockfall incidents in open-pit mines. This system integrates multi-source data inputs, advanced machine learning algorithms, and real-time monitoring to enhance mine safety and operational efficiency.
 
+## 📸 Dashboard Preview
+
+![Rockfall Prediction Dashboard](images/dashboard-screenshot.jpg)
+*Real-time monitoring dashboard showing risk levels, system overview, and recent alerts*
+
 ### 🌟 Key Features
 
 - **🤖 AI-Powered Predictions**: Advanced ML models using Random Forest and Gradient Boosting

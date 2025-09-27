@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Quick start script for the sensor simulator
 """

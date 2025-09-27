@@ -182,67 +182,7 @@ curl -X POST http://localhost:5000/api/sensor-data \
 ```bash
 # Use the sensor simulator to generate emergency scenario
 python data_processing/sensor_simulator.py
-# Choose option 3: Simulate emergency scenario
-```
-
-## Troubleshooting
-
-### Common Issues
-
-#### Port Already in Use
-```bash
-# Find process using port 5000
-netstat -ano | findstr :5000  # Windows
-lsof -i :5000                 # Unix/Linux/macOS
-
-# Kill process
-taskkill /PID <PID> /F        # Windows
-kill -9 <PID>                 # Unix/Linux/macOS
-```
-
-#### Python Module Not Found
-```bash
-# Ensure virtual environment is activated
-# Check PYTHONPATH
-export PYTHONPATH=$PWD:$PYTHONPATH  # Unix/Linux/macOS
-set PYTHONPATH=%CD%;%PYTHONPATH%    # Windows
-```
-
-#### Frontend Build Issues
-```bash
-cd frontend
-rm -rf node_modules package-lock.json
-npm install
-npm start
-```
-
-#### Database Issues
-```bash
-# Reset database
-rm rockfall_system.db  # If using SQLite
-python -c "
-from backend.app import app, db
-with app.app_context():
-    db.drop_all()
-    db.create_all()
-"
-```
-
-### Performance Optimization
-
-#### For Production Deployment
-1. Use PostgreSQL instead of SQLite
-2. Configure Redis for caching
-3. Use Nginx as reverse proxy
-4. Enable SSL/TLS
-5. Set up monitoring and logging
-
-#### Database Optimization
-```sql
--- Add indexes for better performance
-CREATE INDEX idx_sensor_data_timestamp ON sensor_data(timestamp);
-CREATE INDEX idx_sensor_data_sensor_id ON sensor_data(sensor_id);
-CREATE INDEX idx_alerts_timestamp ON alerts(timestamp);
+``'
 ```
 
 ## System Architecture

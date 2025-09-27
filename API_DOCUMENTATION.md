@@ -231,33 +231,6 @@ Sensor values should be numeric and include appropriate units:
 - Rainfall: millimeters per hour (mm/h)
 - Vibration: meters per second squared (m/s²)
 
-## Example Usage
-
-### Python
-```python
-import requests
-import json
-from datetime import datetime
-
-# Submit sensor data
-sensor_data = {
-    "sensor_id": "DS-001",
-    "sensor_type": "displacement",
-    "location_x": -23.5505,
-    "location_y": -46.6333,
-    "value": 1.2,
-    "unit": "mm",
-    "timestamp": datetime.utcnow().isoformat() + "Z"
-}
-
-response = requests.post(
-    "http://localhost:5000/api/sensor-data",
-    json=sensor_data,
-    headers={"Content-Type": "application/json"}
-)
-
-print(response.json())
-
 # Get risk assessment
 risk_response = requests.get("http://localhost:5000/api/risk-assessment")
 risk_data = risk_response.json()
@@ -316,45 +289,3 @@ curl http://localhost:5000/api/risk-assessment
 # Get alerts
 curl http://localhost:5000/api/alerts
 ```
-
-## Webhooks (Future Enhancement)
-
-In future versions, the system will support webhooks for real-time notifications:
-
-```json
-{
-  "webhook_url": "https://your-system.com/webhook",
-  "events": ["high_risk_detected", "sensor_failure"],
-  "secret": "your_webhook_secret"
-}
-```
-
-## Integration Guidelines
-
-### Real Sensor Integration
-To integrate with real sensors:
-
-1. **Data Collection**: Set up data collectors that read from your sensors
-2. **Data Transformation**: Convert sensor data to the required API format
-3. **Batch Processing**: Send data in batches for better performance
-4. **Error Handling**: Implement retry logic for failed requests
-5. **Monitoring**: Monitor API responses and sensor connectivity
-
-### Third-party Systems
-To integrate with existing mine management systems:
-
-1. **API Gateway**: Use an API gateway for authentication and routing
-2. **Data Synchronization**: Implement two-way data sync if needed
-3. **Alert Integration**: Forward alerts to existing notification systems
-4. **Reporting**: Export data for compliance and reporting requirements
-
-## Security Considerations
-
-For production deployment:
-
-1. **Authentication**: Implement API key or OAuth authentication
-2. **HTTPS**: Use SSL/TLS encryption for all communications
-3. **Input Validation**: Validate all input data thoroughly
-4. **Rate Limiting**: Implement rate limiting to prevent abuse
-5. **Logging**: Log all API access for security monitoring
-6. **Network Security**: Restrict API access to authorized networks only

@@ -102,7 +102,6 @@ We use [Semantic Versioning](https://semver.org/):
 ### High Priority
 - [ ] Additional sensor type support
 - [ ] Enhanced ML algorithms
-- [ ] Mobile app development
 - [ ] Real-time data streaming
 - [ ] Advanced visualization
 
@@ -127,13 +126,6 @@ We use [Semantic Versioning](https://semver.org/):
 - Help others learn and grow
 - Prioritize safety in all contributions
 - Follow professional standards
-
-## 📞 Getting Help
-
-- Join our discussions in GitHub Discussions
-- Ask questions in issues with "question" label
-- Check existing documentation first
-- Be specific about your environment and setup
 
 ## 🙏 Recognition
 
